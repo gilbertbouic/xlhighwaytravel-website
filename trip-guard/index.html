@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow, noarchive" />
   <meta name="googlebot" content="noindex, nofollow" />
   <title>XL Trip Guard · Staff only</title>
-  <link rel="icon" href="https://xlhighwaytravel.co.za/wp-content/uploads/2023/05/logo-1-e1771506923619.png" />
+  <link rel="icon" href="../assets/img/logo.png" type="image/png" />
   <style>
     :root {
       --red: #AB2B2B;
@@ -24,7 +24,7 @@
       --red-bg: #FDE8E8;
       --white: #fff;
       --line: #e6ddd0;
-      --max: 880px;
+      --max: 900px;
     }
     * { box-sizing: border-box; }
     body {
@@ -68,6 +68,7 @@
     .pill-amber { background: var(--amber-bg); color: var(--amber); }
     .pill-red { background: var(--red-bg); color: var(--red); }
     .pill-grey { background: #eee; color: #555; }
+    .pill-gold { background: rgba(251,127,24,.15); color: #9a4a00; }
     main {
       max-width: var(--max);
       margin: 0 auto;
@@ -134,7 +135,6 @@
       background: #fff;
       color: var(--ink);
     }
-    .field textarea { min-height: 90px; resize: vertical; }
     .nav {
       display: flex;
       flex-wrap: wrap;
@@ -177,8 +177,8 @@
       display: grid;
       grid-template-columns: 32px 1fr auto;
       gap: 10px;
-      align-items: center;
-      padding: 10px 0;
+      align-items: start;
+      padding: 12px 0;
       border-bottom: 1px solid var(--line);
     }
     .stop:last-child { border-bottom: 0; }
@@ -186,10 +186,21 @@
       width: 28px; height: 28px; border-radius: 50%;
       display: grid; place-items: center;
       font-size: .75rem; font-weight: 800; color: #fff;
+      margin-top: 2px;
     }
     .dot.g { background: var(--green); }
     .dot.a { background: var(--amber); }
     .dot.r { background: var(--red); }
+    .decision {
+      margin: 6px 0 0;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: var(--bg);
+      border-left: 3px solid var(--gold);
+      font-size: .86rem;
+      color: var(--ink);
+    }
+    .decision strong { color: var(--burgundy); }
     .overall {
       display: flex;
       justify-content: space-between;
@@ -207,22 +218,6 @@
     .overall.ok strong { color: var(--green); }
     .overall.bad strong { color: var(--red); }
     .overall.caution strong { color: var(--amber); }
-    .template {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: #fff;
-      margin-bottom: 8px;
-      cursor: pointer;
-      width: 100%;
-      font: inherit;
-      text-align: left;
-    }
-    .template:hover { border-color: var(--gold); }
     .option {
       border: 2px solid var(--line);
       border-radius: 14px;
@@ -245,6 +240,23 @@
       font-weight: 800;
       padding: 3px 8px;
       border-radius: 999px;
+    }
+    .option h3 { margin: 12px 0 6px; font-size: 1.02rem; }
+    .justification {
+      margin: 10px 0 0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #faf7f2;
+      border: 1px solid var(--line);
+      font-size: .88rem;
+    }
+    .justification .label {
+      font-size: .68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--muted);
+      margin-bottom: 4px;
     }
     .wa {
       background: #075E54;
@@ -280,6 +292,29 @@
       text-align: center;
     }
     footer a { color: var(--red); }
+    .template {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      margin-bottom: 8px;
+      cursor: pointer;
+      width: 100%;
+      font: inherit;
+      text-align: left;
+    }
+    .template:hover { border-color: var(--gold); }
+    .reason-list {
+      margin: 6px 0 0;
+      padding-left: 1.1rem;
+      font-size: .86rem;
+      color: var(--muted);
+    }
+    .reason-list li { margin-bottom: 3px; }
   </style>
 </head>
 <body>
@@ -288,14 +323,13 @@
       <div>
         <div class="brand">XL Highway Travel · Staff tool</div>
         <h1>XL Trip Guard</h1>
-        <div class="sub">Flight delay risk &amp; alternative routing · Flights only</div>
+        <div class="sub">Delay risk · justified decisions · alternate routes</div>
       </div>
       <span class="pill pill-staff" id="sessionBadge">Locked</span>
     </div>
   </header>
 
   <main>
-    <!-- PASSWORD GATE -->
     <section id="view-gate" class="gate">
       <div class="lock">🔐</div>
       <div class="card" style="text-align:left">
@@ -312,11 +346,10 @@
         <button class="btn btn-primary btn-block" id="btnUnlock">Unlock tool</button>
       </div>
       <p class="muted" style="font-size:.8rem">
-        Bookmark: <strong>xlhighwaytravel.co.za/trip-guard/</strong>
+        Bookmark: <strong>/trip-guard/</strong> · do not add to public menus
       </p>
     </section>
 
-    <!-- APP -->
     <section id="view-app" class="hidden">
       <nav class="nav" id="mainNav">
         <button type="button" data-view="home" class="active">Home</button>
@@ -325,30 +358,29 @@
         <button type="button" id="btnLock">Lock</button>
       </nav>
 
-      <!-- HOME -->
       <div id="panel-home">
         <p style="font-size:1.2rem;font-weight:700;margin:0 0 12px">What do you need?</p>
         <button class="btn btn-primary btn-block" id="btnGoCheck">🔍  Check a client trip</button>
 
-        <div class="section-title">Southern Africa templates</div>
-        <button type="button" class="template" data-tpl="DUR|JNB|VFA">
-          <div><strong>DUR–JNB–VFA</strong><div class="muted">Victoria Falls via OR Tambo</div></div>
+        <div class="section-title">Quick examples (international hubs)</div>
+        <button type="button" class="template" data-tpl="LHR|DXB|SIN">
+          <div><strong>LHR–DXB–SIN</strong><div class="muted">Europe → Gulf → Asia</div></div>
           <span class="pill pill-grey">Use</span>
         </button>
-        <button type="button" class="template" data-tpl="CPT|JNB|VFA">
-          <div><strong>CPT–JNB–VFA</strong><div class="muted">Cape → Falls via JNB</div></div>
+        <button type="button" class="template" data-tpl="CDG|DOH|BKK">
+          <div><strong>CDG–DOH–BKK</strong><div class="muted">Europe → Doha → Bangkok</div></div>
           <span class="pill pill-grey">Use</span>
         </button>
-        <button type="button" class="template" data-tpl="CPT|JNB|MPM">
-          <div><strong>CPT–JNB–MPM</strong><div class="muted">Mozambique via JNB</div></div>
+        <button type="button" class="template" data-tpl="FRA|IST|BOM">
+          <div><strong>FRA–IST–BOM</strong><div class="muted">Europe → Istanbul → Mumbai</div></div>
           <span class="pill pill-grey">Use</span>
         </button>
-        <button type="button" class="template" data-tpl="JNB|LLW">
-          <div><strong>JNB–LLW</strong><div class="muted">Malawi (Lilongwe)</div></div>
+        <button type="button" class="template" data-tpl="AMS|DXB">
+          <div><strong>AMS–DXB</strong><div class="muted">Direct long-haul style check</div></div>
           <span class="pill pill-grey">Use</span>
         </button>
-        <button type="button" class="template" data-tpl="DUR|CPT">
-          <div><strong>DUR–CPT</strong><div class="muted">Domestic</div></div>
+        <button type="button" class="template" data-tpl="LHR|JFK">
+          <div><strong>LHR–JFK</strong><div class="muted">Transatlantic nonstop</div></div>
           <span class="pill pill-grey">Use</span>
         </button>
 
@@ -360,27 +392,26 @@
           Clear last check
         </button>
         <p class="muted" style="margin:8px 0 0;font-size:.8rem">
-          Tip: checks are only on this browser for this visit. Use <strong>Lock</strong> to sign out and wipe the session.
+          Checks stay in this browser for this visit only. Use <strong>Lock</strong> to sign out and wipe the session.
         </p>
       </div>
 
-      <!-- CHECK FORM -->
       <div id="panel-check" class="hidden">
         <div class="card">
           <h2>Enter flight routing</h2>
-          <p class="muted">Airports as 3-letter codes. Add a via stop for multi-stop Southern Africa.</p>
+          <p class="muted">Use 3-letter IATA codes. Add via stops for multi-leg journeys. Enter connection buffer where relevant.</p>
           <div class="grid-2">
             <div class="field">
               <label for="from">From</label>
-              <input id="from" list="airports" placeholder="e.g. DUR" />
+              <input id="from" list="airports" placeholder="e.g. LHR" />
             </div>
             <div class="field">
               <label for="via">Via (optional)</label>
-              <input id="via" list="airports" placeholder="e.g. JNB" />
+              <input id="via" list="airports" placeholder="e.g. DXB" />
             </div>
             <div class="field">
               <label for="to">To</label>
-              <input id="to" list="airports" placeholder="e.g. VFA" />
+              <input id="to" list="airports" placeholder="e.g. SIN" />
             </div>
             <div class="field">
               <label for="date">Travel date</label>
@@ -388,11 +419,11 @@
             </div>
             <div class="field">
               <label for="flights">Flight numbers (optional)</label>
-              <input id="flights" placeholder="e.g. SA 123, BA 6273" />
+              <input id="flights" placeholder="e.g. EK 5, SQ 495" />
             </div>
             <div class="field">
               <label for="client">Client / ref (optional)</label>
-              <input id="client" placeholder="e.g. Naidoo · XL-4821" />
+              <input id="client" placeholder="e.g. Smith · XL-4821" />
             </div>
             <div class="field">
               <label for="buffer">Connection buffer at via (minutes)</label>
@@ -404,12 +435,14 @@
             </div>
           </div>
           <datalist id="airports">
-            <option value="DUR"><option value="JNB"><option value="CPT"><option value="HLA">
-            <option value="VFA"><option value="HRE"><option value="MPM"><option value="LLW">
-            <option value="BLZ"><option value="WDH"><option value="GBE"><option value="MRU">
-            <option value="DXB"><option value="DOH"><option value="LHR"><option value="IST">
-            <option value="CDG"><option value="FRA"><option value="AMS"><option value="NBO">
-            <option value="ADD"><option value="CAI"><option value="BOM"><option value="SIN">
+            <option value="LHR"><option value="LGW"><option value="CDG"><option value="FRA">
+            <option value="AMS"><option value="IST"><option value="DXB"><option value="DOH">
+            <option value="AUH"><option value="SIN"><option value="BKK"><option value="HKG">
+            <option value="NRT"><option value="HND"><option value="SYD"><option value="MEL">
+            <option value="JFK"><option value="EWR"><option value="LAX"><option value="ORD">
+            <option value="BOM"><option value="DEL"><option value="MAD"><option value="BCN">
+            <option value="ZRH"><option value="MUC"><option value="FCO"><option value="ATH">
+            <option value="JNB"><option value="CPT"><option value="DUR"><option value="MRU">
           </datalist>
           <div class="stack">
             <button class="btn btn-primary btn-block" id="btnAnalyse">Check delays →</button>
@@ -418,43 +451,39 @@
         </div>
       </div>
 
-      <!-- RESULTS -->
       <div id="panel-results" class="hidden">
         <div id="resultsBody"></div>
       </div>
 
-      <!-- HELP -->
       <div id="panel-help" class="hidden">
         <div class="card">
           <h2>How to use</h2>
           <p class="muted">1. Unlock with the staff password from the office.<br />
-          2. Check a trip — enter airports or pick a Southern Africa template.<br />
-          3. Read green / amber / red. Open better options if needed.<br />
-          4. Copy or WhatsApp the client message. Rebook only in your GDS.</p>
+          2. Enter airports (or use an international example) and connection buffer if known.<br />
+          3. Read traffic lights and the short justification under each decision.<br />
+          4. Compare alternate routes — rebook only in your GDS.</p>
         </div>
         <div class="card">
           <h2>Traffic lights</h2>
           <p><span class="pill pill-green">Green</span> On track · <span class="pill pill-amber">Amber</span> Caution · <span class="pill pill-red">Red</span> High risk</p>
         </div>
         <div class="card">
-          <h2>Common codes</h2>
+          <h2>What “delay decision” means</h2>
           <p class="muted" style="margin:0">
-            <strong>DUR</strong> Durban · <strong>JNB</strong> Johannesburg · <strong>CPT</strong> Cape Town<br />
-            <strong>VFA</strong> Victoria Falls · <strong>HRE</strong> Harare · <strong>MPM</strong> Maputo<br />
-            <strong>LLW</strong> Lilongwe · <strong>WDH</strong> Windhoek · <strong>MRU</strong> Mauritius<br />
-            <strong>DXB</strong> Dubai · <strong>DOH</strong> Doha · <strong>LHR</strong> London Heathrow
+            Each stop and connection is scored for congestion, buffer length and recovery options.
+            You get a short plain-language reason for why that leg is green, amber or red —
+            so you can explain the advice to the client with confidence.
           </p>
         </div>
         <div class="card">
           <h2>Important</h2>
-          <p class="muted" style="margin:0">This tool <strong>advises only</strong>. Times and risk scores are guidance for agents. Always confirm with airline/GDS before ticketing. Scope: <strong>scheduled flights only</strong> (including multi-stop Southern Africa).</p>
+          <p class="muted" style="margin:0">This tool <strong>advises only</strong>. Always confirm times and inventory in the airline/GDS before ticketing. Scope: scheduled passenger flights.</p>
         </div>
         <div class="card">
           <h2>Office</h2>
           <p class="muted" style="margin:0">
             <a href="tel:+27317655845">+27 31 765 5845</a> ·
-            <a href="mailto:bookings@xlhighwaytravel.co.za">bookings@xlhighwaytravel.co.za</a> ·
-            <a href="https://wa.me/27828261451" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="mailto:bookings@xlhighwaytravel.co.za">bookings@xlhighwaytravel.co.za</a>
           </p>
         </div>
       </div>
@@ -463,43 +492,63 @@
 
   <footer>
     XL Trip Guard · Internal staff use ·
-    <a href="https://xlhighwaytravel.co.za/">xlhighwaytravel.co.za</a>
-    · Not a public booking page
+    <a href="../index.html">Public website</a>
+    · Not a booking page
   </footer>
 
   <script>
 (function () {
   'use strict';
 
-  /** Fallback hash if PHP auth.php is not available (same as config.php default). */
+  /** SHA-256 of: (T00ManyDelays) — same as trip-guard/config.php */
   const FALLBACK_HASH = 'ab43c4927204d823df3f3f9fc674a07375465ecebfe9db232db085b095d029b4';
-  const SESSION_KEY = 'xl_tg_session_v1';
+  const SESSION_KEY = 'xl_tg_session_v2';
 
   const NAMES = {
-    DUR: 'Durban (King Shaka)', JNB: 'Johannesburg (OR Tambo)', CPT: 'Cape Town',
-    HLA: 'Johannesburg (Lanseria)', VFA: 'Victoria Falls', HRE: 'Harare',
-    MPM: 'Maputo', LLW: 'Lilongwe', BLZ: 'Blantyre', WDH: 'Windhoek',
-    GBE: 'Gaborone', MRU: 'Mauritius', DXB: 'Dubai', DOH: 'Doha',
-    LHR: 'London Heathrow', IST: 'Istanbul', CDG: 'Paris CDG', FRA: 'Frankfurt',
-    AMS: 'Amsterdam', NBO: 'Nairobi', ADD: 'Addis Ababa', CAI: 'Cairo',
-    BOM: 'Mumbai', SIN: 'Singapore'
+    LHR: 'London Heathrow', LGW: 'London Gatwick', CDG: 'Paris CDG', FRA: 'Frankfurt',
+    AMS: 'Amsterdam', IST: 'Istanbul', DXB: 'Dubai', DOH: 'Doha', AUH: 'Abu Dhabi',
+    SIN: 'Singapore', BKK: 'Bangkok', HKG: 'Hong Kong', NRT: 'Tokyo Narita', HND: 'Tokyo Haneda',
+    SYD: 'Sydney', MEL: 'Melbourne', JFK: 'New York JFK', EWR: 'Newark', LAX: 'Los Angeles',
+    ORD: 'Chicago O\'Hare', BOM: 'Mumbai', DEL: 'Delhi', MAD: 'Madrid', BCN: 'Barcelona',
+    ZRH: 'Zurich', MUC: 'Munich', FCO: 'Rome Fiumicino', ATH: 'Athens',
+    JNB: 'Johannesburg (OR Tambo)', CPT: 'Cape Town', DUR: 'Durban (King Shaka)', MRU: 'Mauritius'
   };
 
   /** Hub congestion / complexity risk 0–3 */
   const HUB_RISK = {
-    JNB: 2, DXB: 2, LHR: 3, CDG: 3, FRA: 2, IST: 2, AMS: 2, DOH: 1,
-    CPT: 1, DUR: 0, HLA: 1, VFA: 1, HRE: 1, MPM: 1, LLW: 1, BLZ: 1,
-    WDH: 1, MRU: 1, NBO: 2, ADD: 2, SIN: 1, BOM: 2, CAI: 2, GBE: 1
+    LHR: 3, LGW: 2, CDG: 3, FRA: 2, AMS: 2, IST: 2, DXB: 2, DOH: 1, AUH: 1,
+    SIN: 1, BKK: 2, HKG: 2, NRT: 2, HND: 2, SYD: 1, MEL: 1,
+    JFK: 3, EWR: 2, LAX: 2, ORD: 2, BOM: 2, DEL: 2, MAD: 2, BCN: 1,
+    ZRH: 1, MUC: 2, FCO: 2, ATH: 1, JNB: 2, CPT: 1, DUR: 0, MRU: 1
   };
 
-  /** Thin regional markets — missed connection hurts more */
-  const THIN_REGIONAL = new Set(['VFA', 'HRE', 'LLW', 'BLZ', 'MPM', 'WDH', 'GBE']);
+  /** Preferred alternate hubs for re-routing (no regional “spotlight” lists) */
+  const HUB_ALTERNATES = {
+    LHR: ['AMS', 'CDG', 'FRA', 'IST'],
+    CDG: ['AMS', 'FRA', 'LHR', 'IST'],
+    FRA: ['AMS', 'MUC', 'IST', 'DOH'],
+    AMS: ['FRA', 'CDG', 'IST', 'DXB'],
+    IST: ['DXB', 'DOH', 'FRA', 'AMS'],
+    DXB: ['DOH', 'AUH', 'IST'],
+    DOH: ['DXB', 'AUH', 'IST'],
+    AUH: ['DXB', 'DOH'],
+    SIN: ['BKK', 'HKG', 'DXB'],
+    BKK: ['SIN', 'HKG', 'DOH'],
+    HKG: ['SIN', 'BKK', 'NRT'],
+    JFK: ['EWR', 'ORD', 'LHR'],
+    EWR: ['JFK', 'ORD'],
+    LAX: ['SFO', 'ORD', 'DXB'],
+    BOM: ['DEL', 'DXB', 'DOH'],
+    DEL: ['BOM', 'DXB', 'DOH'],
+    JNB: ['DXB', 'DOH', 'IST'],
+    CPT: ['DXB', 'DOH', 'FRA']
+  };
 
   let lastResult = null;
-  let serverAuth = null; // null unknown, true/false
+  let serverAuth = null;
 
   const $ = (id) => document.getElementById(id);
-  const show = (el, on) => el.classList.toggle('hidden', !on);
+  const show = (el, on) => el && el.classList.toggle('hidden', !on);
 
   async function sha256(text) {
     const data = new TextEncoder().encode(text);
@@ -514,7 +563,6 @@
         '<p class="muted" style="margin:0">No trip checked yet this session.</p>';
     }
     if ($('resultsBody')) $('resultsBody').innerHTML = '';
-    // reset form fields used for a check
     ['from', 'via', 'via2', 'to', 'flights', 'client', 'buffer'].forEach(function (id) {
       if ($(id)) $(id).value = '';
     });
@@ -552,7 +600,6 @@
   }
 
   async function login(password) {
-    // Prefer PHP session auth
     if (serverAuth !== false) {
       try {
         const res = await fetch('auth.php', {
@@ -570,7 +617,6 @@
           serverAuth = true;
           return { ok: false, error: data.error || 'Wrong password.' };
         }
-        // 404/500 → fall back to client hash
         serverAuth = false;
       } catch {
         serverAuth = false;
@@ -602,7 +648,6 @@
   function buildRoute() {
     const stops = [code($('from').value), code($('via').value), code($('via2').value), code($('to').value)]
       .filter(Boolean);
-    // de-dupe consecutive
     const route = [];
     stops.forEach(s => {
       if (!route.length || route[route.length - 1] !== s) route.push(s);
@@ -616,110 +661,117 @@
     return 'green';
   }
 
-  function analyse(route, bufferMin) {
-    const stops = route.map((c, i) => {
-      let score = HUB_RISK[c] != null ? HUB_RISK[c] * 0.7 : 1;
-      let reasons = [];
-      if (HUB_RISK[c] >= 2) reasons.push('Busy international hub — congestion can add delay');
-      if (HUB_RISK[c] === 0) reasons.push('Usually calm departure/arrival point');
-      if (THIN_REGIONAL.has(c) && i === route.length - 1) {
-        score += 0.4;
-        reasons.push('Regional destination with limited same-day recovery options');
+  function levelLabel(level) {
+    if (level === 'green') return 'On track';
+    if (level === 'amber') return 'Caution';
+    return 'High risk';
+  }
+
+  /**
+   * Build a short staff-facing justification for each delay decision.
+   */
+  function justifyStop(kind, airport, score, level, reasons, buffer) {
+    const name = NAMES[airport] || airport;
+    if (kind === 'origin') {
+      if (level === 'green') {
+        return 'Delay decision: depart ' + airport + ' as planned. ' + name +
+          ' shows low structural delay pressure in this model — no retime required unless day-of ops change.';
       }
+      if (level === 'amber') {
+        return 'Delay decision: keep ' + airport + ' but prefer an earlier bank if available. ' +
+          (reasons[0] || 'Moderate hub pressure') + ' — build recovery room before the next sector.';
+      }
+      return 'Delay decision: treat ' + airport + ' as a high-risk origin. Prefer an earlier departure or a different first hub; ' +
+          (reasons[0] || 'congestion risk is elevated') + '.';
+    }
+    if (kind === 'destination') {
+      if (level === 'green') {
+        return 'Delay decision: arrival at ' + airport + ' is acceptable. No destination-driven retime needed from the model.';
+      }
+      return 'Delay decision: protect arrival into ' + airport +
+        ' by hardening the upstream connection rather than changing the destination airport. ' +
+        (reasons[0] || 'Recovery options may be limited.');
+    }
+    // connection
+    const bufTxt = buffer != null ? buffer + ' min buffer' : 'unknown buffer';
+    if (level === 'green') {
+      return 'Delay decision: hold the ' + airport + ' connection (' + bufTxt + '). ' +
+        (reasons[0] || 'Connection looks workable') + ' — still monitor inbound punctuality on the day.';
+    }
+    if (level === 'amber') {
+      return 'Delay decision: do not rely on a short miss recovery at ' + airport +
+        '. Either lengthen the connection (aim 150–180+ min at busy hubs) or retime the inbound. Reason: ' +
+        (reasons[0] || 'connection risk is elevated') + '.';
+    }
+    return 'Delay decision: rebook — the ' + airport + ' connection is high risk (' + bufTxt + '). ' +
+      (reasons[0] || 'Missed-connection probability is elevated') +
+      '. Prefer a longer buffer, overnight, or an alternate hub before ticketing.';
+  }
+
+  function analyse(route, bufferMin) {
+    const display = route.map((c, i) => {
+      const isConn = i > 0 && i < route.length - 1;
+      const kind = i === 0 ? 'origin' : (isConn ? 'connection' : 'destination');
+      let score = HUB_RISK[c] != null ? HUB_RISK[c] * 0.7 : 1;
+      const reasons = [];
+
+      if (HUB_RISK[c] >= 3) reasons.push('Major global hub — frequent congestion and ATC holds');
+      else if (HUB_RISK[c] >= 2) reasons.push('Busy hub — peak banks often run late');
+      else if (HUB_RISK[c] === 0) reasons.push('Typically calmer operations profile');
+      else reasons.push('Moderate operational complexity');
+
+      if (isConn) {
+        score = HUB_RISK[c] != null ? HUB_RISK[c] : 1.5;
+        const buf = Number.isFinite(bufferMin) ? bufferMin : null;
+        if (buf != null) {
+          if (buf < 60) {
+            score += 2.5;
+            reasons.unshift('Connection under 60 minutes — high miss risk');
+          } else if (buf < 90) {
+            score += 1.8;
+            reasons.unshift('Tight connection (under 90 minutes)');
+          } else if (buf < 120 && (HUB_RISK[c] || 0) >= 2) {
+            score += 1.2;
+            reasons.unshift('Buffer under 2 hours at a busy hub');
+          } else if (buf >= 180) {
+            score -= 0.8;
+            reasons.unshift('Healthy buffer — better recovery room');
+          } else {
+            reasons.unshift('Connection buffer looks workable if inbound is on time');
+          }
+        } else {
+          score += 0.6;
+          reasons.unshift('No buffer time entered — treat this connection carefully');
+        }
+        score = Math.max(0, score);
+      }
+
+      const level = levelFromScore(score);
+      const decision = justifyStop(kind, c, score, level, reasons, isConn ? bufferMin : null);
+
       return {
         code: c,
         name: NAMES[c] || c,
         score,
         reasons,
-        isConnection: i > 0 && i < route.length - 1
-      };
-    });
-
-    // Connection assessment at intermediate stops
-    const connections = [];
-    for (let i = 1; i < route.length - 1; i++) {
-      const hub = route[i];
-      const next = route[i + 1];
-      let score = HUB_RISK[hub] != null ? HUB_RISK[hub] : 1.5;
-      const reasons = [];
-      const buf = Number.isFinite(bufferMin) ? bufferMin : null;
-
-      if (buf != null) {
-        if (buf < 60) {
-          score += 2.5;
-          reasons.push('Connection under 60 minutes — high miss risk');
-        } else if (buf < 90) {
-          score += 1.8;
-          reasons.push('Tight connection (under 90 minutes)');
-        } else if (buf < 120 && HUB_RISK[hub] >= 2) {
-          score += 1.2;
-          reasons.push('Buffer under 2 hours at a busy hub');
-        } else if (buf >= 180) {
-          score -= 0.8;
-          reasons.push('Healthy buffer — better recovery room');
-        } else {
-          reasons.push('Connection buffer looks workable if inbound is on time');
-        }
-      } else {
-        score += 0.6;
-        reasons.push('No buffer time entered — treat hub connection carefully');
-      }
-
-      if (THIN_REGIONAL.has(next)) {
-        score += 0.8;
-        reasons.push('Next leg is a thinner regional route (' + next + ') — missed connection is costly');
-      }
-
-      if (hub === 'JNB') {
-        score += 0.4;
-        reasons.push('OR Tambo is the main SA hub — peak periods often run late');
-      }
-
-      connections.push({
-        code: hub,
-        name: NAMES[hub] || hub,
-        score: Math.max(0, score),
-        reasons,
-        buffer: buf,
-        next
-      });
-    }
-
-    // Merge connection scores onto intermediate stop display
-    const display = route.map((c, i) => {
-      const base = stops[i];
-      if (i > 0 && i < route.length - 1) {
-        const conn = connections.find(x => x.code === c) || base;
-        return {
-          code: c,
-          name: base.name,
-          score: conn.score,
-          reasons: conn.reasons,
-          kind: 'connection',
-          level: levelFromScore(conn.score)
-        };
-      }
-      return {
-        code: c,
-        name: base.name,
-        score: base.score,
-        reasons: base.reasons.length ? base.reasons : ['No special delay signal for this airport in the model'],
-        kind: i === 0 ? 'origin' : 'destination',
-        level: levelFromScore(base.score)
+        kind,
+        level,
+        decision,
+        buffer: isConn ? bufferMin : null
       };
     });
 
     const maxScore = Math.max(...display.map(d => d.score), 0);
     const overallLevel = levelFromScore(maxScore);
-    const overallLabel = overallLevel === 'green' ? 'On track' : overallLevel === 'amber' ? 'Caution' : 'High risk';
-
-    const options = buildOptions(route, bufferMin, overallLevel);
+    const overallDecision = overallJustify(route, overallLevel, display, bufferMin);
+    const options = buildAlternateRoutes(route, bufferMin, overallLevel, display);
 
     return {
       route,
       display,
       overallLevel,
-      overallLabel,
+      overallLabel: levelLabel(overallLevel),
+      overallDecision,
       maxScore,
       options,
       bufferMin,
@@ -729,81 +781,143 @@
     };
   }
 
-  function buildOptions(route, bufferMin, overallLevel) {
-    const r = route.slice();
-    const opts = [];
+  function overallJustify(route, level, display, bufferMin) {
+    const worst = display.slice().sort((a, b) => b.score - a.score)[0];
+    const path = route.join(' → ');
+    if (level === 'green') {
+      return 'Overall delay decision: proceed with ' + path +
+        '. No rebooking trigger from this model. Confirm day-of status if travel is soon.';
+    }
+    if (level === 'amber') {
+      return 'Overall delay decision: caution on ' + path +
+        '. Primary concern: ' + worst.code + ' (' + worst.kind + '). ' +
+        'Offer the client a safer alternate (longer buffer or different hub) before final ticketing.';
+    }
+    return 'Overall delay decision: high risk on ' + path +
+      '. Do not leave the client on the current connection profile without discussing options. ' +
+      'Focus first on ' + worst.code + ': ' + (worst.reasons[0] || 'elevated miss risk') + '.';
+  }
 
-    // Best: same routing, earlier / longer buffer advice
-    if (r.length >= 3 && r.includes('JNB')) {
+  /**
+   * Produce concrete alternate routes (airport sequences) with short justifications.
+   */
+  function buildAlternateRoutes(route, bufferMin, overallLevel, display) {
+    const opts = [];
+    const origin = route[0];
+    const dest = route[route.length - 1];
+    const hubs = route.slice(1, -1);
+    const primaryHub = hubs[0] || null;
+    const alts = primaryHub && HUB_ALTERNATES[primaryHub]
+      ? HUB_ALTERNATES[primaryHub].filter(h => h !== primaryHub && h !== origin && h !== dest)
+      : [];
+
+    // 1) Same route, longer buffer / earlier inbound
+    if (route.length >= 3) {
       opts.push({
         rank: 'BEST OVERALL',
         best: true,
-        title: 'Same route · earlier departure · longer JNB buffer',
-        route: r,
-        why: 'Keep ' + r.join(' → ') + ' but aim for ~3 hours at Johannesburg. Safer for thin regional onwards (VFA, MPM, LLW, etc.).',
-        tags: ['Safer', 'Similar price', 'Often +0–40 min total']
-      });
-      opts.push({
-        rank: 'SAFEST',
-        best: false,
-        title: 'Overnight buffer at JNB',
-        route: r,
-        why: 'Arrive Johannesburg the evening before the regional flight. Almost eliminates missed-connection risk. May need a hotel night and lodge date check.',
-        tags: ['Lowest risk', 'Extra night JNB']
-      });
-    } else if (r.length === 2) {
-      opts.push({
-        rank: 'BEST OVERALL',
-        best: true,
-        title: 'Prefer higher on-time / daytime departure',
-        route: r,
-        why: 'On ' + r.join('–') + ', choose a daytime flight with strong historical punctuality when you rebook in the GDS. Avoid last flight of the day if the client has fixed plans.',
-        tags: ['Practical', 'Check GDS OTP']
-      });
-      opts.push({
-        rank: 'SAFEST',
-        best: false,
-        title: 'Earlier flight same day',
-        route: r,
-        why: 'An earlier departure leaves recovery room if the airport is slow. Confirm seat and fare in your booking system.',
-        tags: ['Safer', 'May cost more']
+        title: 'Same routing · longer connection buffer',
+        route: route.slice(),
+        bufferAdvice: 'Aim for 150–180+ minutes at ' + (primaryHub || 'the hub'),
+        why: 'Keeps preferred carriers and terminals when possible, but removes the tight-miss risk that drives most delay claims.',
+        decision: 'Delay decision: do not retime the destination — retime or reprotect the ' +
+          (primaryHub || 'hub') + ' connection instead. A longer buffer is usually cheaper and less disruptive than a full re-route.',
+        tags: ['Same cities', 'Safer buffer', 'GDS retime']
       });
     } else {
       opts.push({
         rank: 'BEST OVERALL',
         best: true,
-        title: 'Reduce tight hubs / add buffer',
-        route: r,
-        why: 'Where a hub looks amber/red, lengthen the connection or retime the inbound leg. Prefer Best overall over pure fastest when clients have fixed lodge or meeting times.',
-        tags: ['Risk first']
+        title: 'Earlier daytime departure (same city pair)',
+        route: route.slice(),
+        bufferAdvice: null,
+        why: 'On nonstop or simple city pairs, earlier banks leave recovery room if the airport runs slow; avoid last-flight-of-day where possible.',
+        decision: 'Delay decision: keep ' + origin + '–' + dest +
+          ' but prefer an earlier published departure with stronger historical punctuality in the GDS.',
+        tags: ['Same route', 'Earlier bank']
       });
     }
 
-    // Fastest — sometimes not recommended
+    // 2) Alternate hub route
+    if (alts.length && origin && dest) {
+      const altHub = alts[0];
+      const altRoute = [origin, altHub, dest];
+      opts.push({
+        rank: 'ALTERNATE HUB',
+        best: false,
+        title: 'Reroute via ' + altHub + ' (' + (NAMES[altHub] || altHub) + ')',
+        route: altRoute,
+        bufferAdvice: 'Build ≥120 min at ' + altHub + ' (longer if evening arrival)',
+        why: 'Changes the connection airport when the current hub is the main amber/red driver — often improves recovery options with preferred partners.',
+        decision: 'Delay decision: leave ' + (primaryHub || 'current hub') +
+          ' if its connection score is the trip bottleneck. Switch the middle point to ' + altHub +
+          ' and protect a solid MCT+ buffer before issuing.',
+        tags: ['New path', altHub, 'Compare fares']
+      });
+    } else if (route.length === 2 && HUB_ALTERNATES[origin]) {
+      const mid = HUB_ALTERNATES[origin][0];
+      if (mid && mid !== dest) {
+        opts.push({
+          rank: 'ALTERNATE HUB',
+          best: false,
+          title: 'One-stop via ' + mid + ' (if nonstop inventory fails)',
+          route: [origin, mid, dest],
+          bufferAdvice: '≥120 min at ' + mid,
+          why: 'Useful when nonstop seats or times are poor — only if the one-stop still beats a risky late nonstop.',
+          decision: 'Delay decision: only introduce a connection if the nonstop is last-of-day or chronically late; otherwise stay nonstop.',
+          tags: ['Fallback path']
+        });
+      }
+    }
+
+    // 3) Overnight / safest recovery
+    if (route.length >= 3) {
+      opts.push({
+        rank: 'SAFEST',
+        best: false,
+        title: 'Overnight at ' + (primaryHub || 'connection city'),
+        route: route.slice(),
+        bufferAdvice: 'Arrive evening before; depart next-day onwards',
+        why: 'Nearly eliminates same-day missed-connection risk. Trade-off: hotel night and possible itinerary date shift.',
+        decision: 'Delay decision: use overnight when the onward flight is sparse, the client has fixed appointments, or the same-day buffer cannot be lengthened.',
+        tags: ['Lowest risk', 'Hotel night']
+      });
+    } else {
+      opts.push({
+        rank: 'SAFEST',
+        best: false,
+        title: 'Backup inventory / earlier alternate flight',
+        route: route.slice(),
+        bufferAdvice: null,
+        why: 'Hold or note a second option in the GDS when the preferred flight sits on a tight schedule.',
+        decision: 'Delay decision: if the chosen flight is cancelled or severely delayed, the backup protects the client without emergency airport rebooking.',
+        tags: ['Contingency']
+      });
+    }
+
+    // 4) Fastest — caution
     opts.push({
       rank: 'FASTEST',
       best: false,
       title: 'Shortest published journey (use with care)',
-      route: r,
-      why: 'The shortest GDS option often trims connection time. Only use if overall is green and the client accepts risk. Not recommended when the onward flight is once-daily regional.',
-      tags: overallLevel === 'green' ? ['OK if green'] : ['Usually avoid if amber/red']
+      route: route.slice(),
+      bufferAdvice: bufferMin != null ? bufferMin + ' min (as entered)' : 'Often the shortest MCT',
+      why: 'Minimum journey time usually trims connection padding. Attractive on paper; fragile when inbound runs late.',
+      decision: overallLevel === 'green'
+        ? 'Delay decision: fastest is acceptable only while the overall model stays green and the client accepts miss risk.'
+        : 'Delay decision: avoid fastest when overall is amber/red — the minutes saved are usually the recovery minutes you need.',
+      tags: overallLevel === 'green' ? ['OK if green'] : ['Usually avoid']
     });
 
-    // DXB alternative hub for long-haul style (if international-ish)
-    if (r.some(x => ['DXB', 'DOH', 'IST', 'LHR'].includes(x))) {
-      opts.unshift({
-        rank: 'BEST OVERALL',
-        best: true,
-        title: 'Compare alternate Gulf/Europe hub',
-        route: r,
-        why: 'If the current hub shows elevated risk, check the same origin/destination via the other preferred partner hub (e.g. DOH vs DXB, or IST) with a longer connection.',
-        tags: ['Partner airlines', 'Check GDS']
-      });
-      // keep only first three
-      while (opts.length > 3) opts.pop();
-    }
+    // Prefer unique ranks; mark first as best only once
+    let bestSet = false;
+    opts.forEach(o => {
+      if (o.best && !bestSet) bestSet = true;
+      else o.best = false;
+    });
+    if (!bestSet && opts[0]) opts[0].best = true;
 
-    return opts.slice(0, 3);
+    return opts.slice(0, 4);
   }
 
   function chipsHtml(route) {
@@ -818,6 +932,10 @@
     return '<span class="pill pill-red">High risk</span>';
   }
 
+  function escapeHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
   function renderResults(result) {
     lastResult = result;
     const oc = result.overallLevel === 'green' ? 'ok' : result.overallLevel === 'red' ? 'bad' : 'caution';
@@ -825,41 +943,52 @@
 
     let stopsHtml = result.display.map(s => {
       const cls = s.level === 'green' ? 'g' : s.level === 'amber' ? 'a' : 'r';
-      const label = s.kind === 'connection' ? s.code + ' · connection' : s.code;
+      const label = s.kind === 'connection'
+        ? s.code + ' · connection'
+        : s.kind === 'origin' ? s.code + ' · origin' : s.code + ' · destination';
+      const reasons = (s.reasons || []).map(r => '<li>' + escapeHtml(r) + '</li>').join('');
       return '<div class="stop">' +
         '<div class="dot ' + cls + '">●</div>' +
-        '<div><strong>' + label + '</strong><div class="muted">' + s.name + ' · ' + s.reasons[0] + '</div></div>' +
+        '<div>' +
+          '<strong>' + label + '</strong>' +
+          '<div class="muted">' + escapeHtml(s.name) + '</div>' +
+          (reasons ? '<ul class="reason-list">' + reasons + '</ul>' : '') +
+          '<div class="decision"><strong>Why this light:</strong> ' + escapeHtml(s.decision) + '</div>' +
+        '</div>' +
         levelPill(s.level) +
         '</div>';
     }).join('');
 
     let optsHtml = result.options.map(o => {
       return '<div class="option ' + (o.best ? 'best' : '') + '">' +
-        '<div class="rank">' + (o.best ? '⭐ ' : '') + o.rank + '</div>' +
-        '<h2 style="margin-top:10px">' + o.title + '</h2>' +
+        '<div class="rank">' + (o.best ? '⭐ ' : '') + escapeHtml(o.rank) + '</div>' +
+        '<h3>' + escapeHtml(o.title) + '</h3>' +
         '<div class="route-chips">' + chipsHtml(o.route) + '</div>' +
-        '<p class="muted">' + o.why + '</p>' +
-        '<div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0">' +
-        o.tags.map(t => '<span class="pill pill-grey">' + t + '</span>').join('') +
+        (o.bufferAdvice ? '<p class="muted" style="margin:4px 0"><span class="pill pill-gold">Buffer</span> ' + escapeHtml(o.bufferAdvice) + '</p>' : '') +
+        '<p class="muted">' + escapeHtml(o.why) + '</p>' +
+        '<div class="justification">' +
+          '<div class="label">Delay decision justification</div>' +
+          escapeHtml(o.decision) +
+        '</div>' +
+        '<div style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 0">' +
+        o.tags.map(t => '<span class="pill pill-grey">' + escapeHtml(t) + '</span>').join('') +
         '</div></div>';
     }).join('');
 
-    const shareText = buildShareText(result, result.options[0]);
+    const shareText = buildShareText(result, result.options.find(o => o.best) || result.options[0]);
 
     $('resultsBody').innerHTML =
       '<div class="route-chips">' + chipsHtml(result.route) + '</div>' +
-      (result.date || result.client ? '<p class="muted">' + [result.client, result.date, result.flights].filter(Boolean).join(' · ') + '</p>' : '') +
+      (result.date || result.client ? '<p class="muted">' + escapeHtml([result.client, result.date, result.flights].filter(Boolean).join(' · ')) + '</p>' : '') +
       '<div class="overall ' + oc + '">' +
-        '<div><div class="muted">Overall</div><strong>' + emoji + ' ' + result.overallLabel + '</strong></div>' +
-        '<div class="muted" style="text-align:right;max-width:220px">Guidance only — confirm in GDS before rebooking</div>' +
+        '<div><div class="muted">Overall</div><strong>' + emoji + ' ' + escapeHtml(result.overallLabel) + '</strong></div>' +
+        '<div class="muted" style="text-align:right;max-width:240px">Guidance only — confirm in GDS before rebooking</div>' +
       '</div>' +
-      '<div class="card">' + stopsHtml + '</div>' +
-      '<div class="card"><h2>Why this matters</h2><p class="muted" style="margin:0">' +
-        (result.overallLevel === 'green'
-          ? 'No major red flags in this model. Still confirm day-of status for the client if travel is soon.'
-          : 'If an inbound leg runs late into a busy hub, the client can miss a thin regional or long-haul connection. Prefer a safer buffer or earlier flight when advising.') +
+      '<div class="card"><h2>Stop-by-stop delay decisions</h2>' + stopsHtml + '</div>' +
+      '<div class="card"><h2>Overall delay decision</h2><p style="margin:0;font-size:.95rem">' +
+        escapeHtml(result.overallDecision) +
       '</p></div>' +
-      '<div class="section-title">Better options</div>' + optsHtml +
+      '<div class="section-title">Alternate routes</div>' + optsHtml +
       '<div class="card"><h2>Share with client</h2>' +
       '<div class="wa" id="shareBox">' + escapeHtml(shareText) + '</div>' +
       '<div class="stack" style="margin-top:12px">' +
@@ -880,9 +1009,8 @@
     $('btnWa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
     $('btnNewCheck').onclick = () => showPanel('check');
 
-    // last check card
     $('lastCheckCard').innerHTML =
-      '<h2 style="margin:0 0 6px">' + (result.client || 'Recent trip') + '</h2>' +
+      '<h2 style="margin:0 0 6px">' + escapeHtml(result.client || 'Recent trip') + '</h2>' +
       '<div class="route-chips">' + chipsHtml(result.route) + '</div>' +
       levelPill(result.overallLevel) +
       ' <button type="button" class="btn btn-ghost" style="margin-top:10px;padding:8px 12px" id="btnOpenLast">Open again</button>';
@@ -890,10 +1018,6 @@
     if (bol) bol.onclick = () => { renderResults(result); showPanel('results'); };
 
     showPanel('results');
-  }
-
-  function escapeHtml(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
   function buildShareText(result, best) {
@@ -906,12 +1030,14 @@
     if (result.overallLevel === 'green') {
       body += 'Everything looks *on track* in our risk check.\n\n';
     } else if (result.overallLevel === 'amber') {
-      body += 'There is a *caution* on part of the journey (often the hub connection).\n\n';
+      body += 'There is a *caution* on part of the journey (usually the hub connection).\n\n';
     } else {
-      body += 'There is an *elevated risk* on this routing — we recommend a change if still possible.\n\n';
+      body += 'There is an *elevated risk* on this routing — we recommend reviewing alternatives if still possible.\n\n';
     }
     if (best) {
-      body += '*Our recommendation:* ' + best.title + '. ' + best.why + '\n\n';
+      body += '*Our recommendation:* ' + best.title +
+        (best.route ? ' (' + best.route.join(' → ') + ')' : '') +
+        '. ' + best.why + '\n\n';
     }
     body += 'Shall I rebook or send alternatives?\n\nKind regards\nXL Highway Travel';
     return body;
@@ -943,14 +1069,12 @@
       $('via2').value = parts[2] || '';
       $('to').value = parts[parts.length - 1] || '';
     }
-    // default buffer hint for multi-stop via JNB
-    if (parts.includes('JNB') && parts.length >= 3 && !$('buffer').value) {
+    if (parts.length >= 3 && !$('buffer').value) {
       $('buffer').value = '95';
     }
     showPanel('check');
   }
 
-  // Events
   $('btnUnlock').onclick = async () => {
     const pw = $('password').value;
     const err = $('loginError');
@@ -990,8 +1114,7 @@
     }
     const bufRaw = $('buffer').value;
     const buf = bufRaw === '' ? null : Number(bufRaw);
-    const result = analyse(route, buf);
-    renderResults(result);
+    renderResults(analyse(route, buf));
   };
 
   document.querySelectorAll('.template').forEach(btn => {
@@ -1002,21 +1125,18 @@
     b.addEventListener('click', () => showPanel(b.getAttribute('data-view')));
   });
 
-  // Default date = +14 days
   (function setDefaultDate() {
     const d = new Date();
     d.setDate(d.getDate() + 14);
-    $('date').value = d.toISOString().slice(0, 10);
+    if ($('date')) $('date').value = d.toISOString().slice(0, 10);
   })();
 
-  // Boot
   (async function boot() {
     const serverOk = await checkServerAuth();
     if (serverOk) {
       setAuthed(true);
       return;
     }
-    // soft client session (same browser tab session only when no PHP)
     if (sessionStorage.getItem(SESSION_KEY)) {
       setAuthed(true);
     } else {
