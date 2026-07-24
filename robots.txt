@@ -2,7 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://xlhighwaytravel.co.za/sitemap.xml
-
-User-agent: *
-Disallow: /trip-guard.html
-Disallow: /trip-guard/
