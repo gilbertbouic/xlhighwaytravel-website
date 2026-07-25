@@ -50,4 +50,9 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://xlhighwaytravel.co.za/googlea40fc137780d0ae3.html</loc>
+    <changefreq>never</changefreq>
+    <priority>0.0</priority>
+  </url>
 </urlset>
