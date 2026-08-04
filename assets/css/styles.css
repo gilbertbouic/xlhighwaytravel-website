@@ -936,7 +936,7 @@ button, input, select, textarea { font: inherit; }
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 12px;
-  min-height: 88px;
+  min-height: 100px;
   display: grid;
   place-items: center;
   padding: 0.85rem;
@@ -950,8 +950,23 @@ button, input, select, textarea { font: inherit; }
   max-height: 48px;
   max-width: 100%;
   object-fit: contain;
-  filter: grayscale(0.15);
+  filter: grayscale(0.1);
 }
+.partner-tile--logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+.partner-tile-name {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
 
 /* Steps */
 .steps {
