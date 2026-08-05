@@ -1063,6 +1063,59 @@ button, input, select, textarea { font: inherit; }
 }
 .footer-bottom a { color: rgba(255,255,255,0.65); }
 
+
+/* Social links (Facebook etc.) */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+.social-link .social-icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  display: block;
+}
+.topbar .social-link {
+  opacity: 0.9;
+}
+.topbar .social-link:hover { opacity: 1; }
+.topbar .social-link .social-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+.footer-social .social-link {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.9rem;
+}
+.footer-social .social-link:hover { color: var(--sand); }
+.footer-social .social-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+.footer-col .social-link .social-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  vertical-align: -0.12em;
+  display: inline-block;
+}
+.contact-tile .social-link {
+  color: var(--burgundy);
+  font-weight: 600;
+}
+.contact-tile .social-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #1877F2;
+}
+
 /* WhatsApp float */
 .wa-float {
   position: fixed;
