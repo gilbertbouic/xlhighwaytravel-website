@@ -1065,55 +1065,58 @@ button, input, select, textarea { font: inherit; }
 
 
 /* Social links (Facebook etc.) */
+
 .social-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: center;
+  gap: 0;
   text-decoration: none;
+  line-height: 0;
 }
 .social-link .social-icon {
-  width: 1em;
-  height: 1em;
+  width: 1.15rem;
+  height: 1.15rem;
   flex-shrink: 0;
   display: block;
 }
 .topbar .social-link {
-  opacity: 0.9;
+  opacity: 0.92;
+  padding: 0.15rem;
 }
 .topbar .social-link:hover { opacity: 1; }
 .topbar .social-link .social-icon {
-  width: 0.95rem;
-  height: 0.95rem;
+  width: 1.05rem;
+  height: 1.05rem;
 }
 .footer-social {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  align-items: center;
+  gap: 0.75rem;
   margin-top: 0.85rem;
 }
 .footer-social .social-link {
-  color: rgba(255,255,255,0.72);
-  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
 }
 .footer-social .social-link:hover { color: var(--sand); }
 .footer-social .social-icon {
-  width: 1.05rem;
-  height: 1.05rem;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 .footer-col .social-link .social-icon {
-  width: 0.95rem;
-  height: 0.95rem;
-  vertical-align: -0.12em;
-  display: inline-block;
-}
-.contact-tile .social-link {
-  color: var(--burgundy);
-  font-weight: 600;
-}
-.contact-tile .social-icon {
   width: 1.1rem;
   height: 1.1rem;
+}
+.contact-tile .social-link {
   color: #1877F2;
+}
+.contact-tile .social-link--wa {
+  color: #25D366;
+}
+.contact-tile .social-icon {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 /* WhatsApp float */
