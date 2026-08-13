@@ -1,9 +1,8 @@
 name: Sync HQ specials
 
 on:
-  schedule:
-    # Tuesday 11:00 South Africa Standard Time (UTC+2, no DST)
-    - cron: "0 9 * * 2"
+  # Public page no longer shows the raw HQ flyer grid.
+  # Keep a manual run for staff; do not auto-commit unused assets.
   workflow_dispatch:
 
 permissions:
