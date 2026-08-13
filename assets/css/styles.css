@@ -1817,7 +1817,7 @@ button, input, select, textarea { font: inherit; }
 }
 .specials-tnc p { margin: 0; }
 
-.hq-flyers { scroll-margin-top: calc(var(--header-h) + 1.5rem); }
+.hq-specials { scroll-margin-top: calc(var(--header-h) + 1.5rem); }
 .hq-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

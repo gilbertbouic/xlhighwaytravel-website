@@ -6,12 +6,11 @@
 
   const DATA_URL = "assets/data/specials.json";
   const WA = "27828261451";
-  const section = document.getElementById("hq-flyers");
+  const section = document.getElementById("hq-specials");
   if (!section) return;
 
   const grid = section.querySelector("[data-hq-grid]");
   const detail = section.querySelector("[data-hq-detail]");
-  const emptyNote = section.querySelector("[data-hq-empty]");
   if (!grid || !detail) return;
 
   const lightbox = document.createElement("div");
@@ -97,7 +96,7 @@
       detail.hidden = true;
       detail.dataset.activeId = "";
       setExpanded("");
-      if (updateHash) history.replaceState(null, "", "specials.html#hq-flyers");
+      if (updateHash) history.replaceState(null, "", "specials.html#hq-specials");
       return;
     }
 
@@ -126,7 +125,7 @@
         ? `<p class="hq-detail-end">Valid until ${escapeHtml(c.ends_label)}</p>`
         : "") +
       (desc ? `<div class="hq-detail-desc">${desc}</div>` : "") +
-      `<p class="hq-detail-note">Tap a flyer for a larger view. Tell us your dates and we will quote this campaign from South Africa — you stay with XL Highway Travel.</p>` +
+      `<p class="hq-detail-note">Tap a flyer for a larger view. Tell us your dates and we will quote this campaign from South Africa.</p>` +
       `</div>` +
       `<div class="hq-gallery" aria-label="${escapeHtml(c.title)} flyers">${gallery}</div>` +
       `<form class="form hq-form" id="${uid}-form" novalidate>` +
@@ -145,13 +144,13 @@
       `<input id="${uid}-dates" name="dates" type="text" placeholder="e.g. 12–22 September 2026"></div>` +
       `</div>` +
       `<div class="field"><label for="${uid}-message">Message *</label>` +
-      `<textarea id="${uid}-message" name="message" required placeholder="Travellers, must-haves, questions…">Please quote: ${escapeHtml(interest)}</textarea></div>` +
+      `<textarea id="${uid}-message" name="message" required>Please quote: ${escapeHtml(interest)}</textarea></div>` +
       `<div class="btn-row hq-form-actions">` +
       `<button class="btn btn-primary" type="submit">Send enquiry</button>` +
       `<a class="btn btn-whatsapp" href="${waUrl(c.title)}" rel="noopener">WhatsApp</a>` +
       `<a class="btn btn-outline" href="tel:+27317655845">Call</a>` +
       `</div>` +
-      `<p class="form-note hq-form-success" hidden tabindex="-1">Your email app should open to bookings@xlhighwaytravel.co.za. If it doesn’t, write to us with this campaign name.</p>` +
+      `<p class="form-note hq-form-success" hidden tabindex="-1">Your email app should open to bookings@xlhighwaytravel.co.za.</p>` +
       `</form>` +
       `</div>`;
 
@@ -199,12 +198,13 @@
       return res.json();
     })
     .then((data) => {
-      const campaigns = Array.isArray(data.campaigns) ? data.campaigns.filter((c) => c && c.images && c.images.length) : [];
+      const campaigns = Array.isArray(data.campaigns)
+        ? data.campaigns.filter((c) => c && c.images && c.images.length)
+        : [];
       if (!campaigns.length) {
         section.hidden = true;
         return;
       }
-      if (emptyNote) emptyNote.hidden = true;
       renderGrid(campaigns);
       openFromHash(campaigns);
       window.addEventListener("hashchange", () => openFromHash(campaigns));

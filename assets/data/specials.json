@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-13T10:26:10.650054+00:00",
-  "count": 6,
+  "generated_at": "2026-08-13T10:40:56.624314+00:00",
+  "count": 8,
   "campaigns": [
     {
       "id": 22374,
@@ -37,6 +37,39 @@
         "assets/img/specials/hq/23877/07.webp",
         "assets/img/specials/hq/23877/08.webp",
         "assets/img/specials/hq/23877/09.webp"
+      ]
+    },
+    {
+      "id": 24143,
+      "slug": "24143-virgin-atlantic-campaign",
+      "title": "Virgin Atlantic Campaign",
+      "ends": "2026-08-31T09:04:00+00:00",
+      "ends_label": "31 Aug 2026",
+      "description_html": "",
+      "images": [
+        "assets/img/specials/hq/24143/01.webp",
+        "assets/img/specials/hq/24143/02.webp",
+        "assets/img/specials/hq/24143/03.webp",
+        "assets/img/specials/hq/24143/04.webp",
+        "assets/img/specials/hq/24143/05.webp",
+        "assets/img/specials/hq/24143/06.webp",
+        "assets/img/specials/hq/24143/07.webp",
+        "assets/img/specials/hq/24143/08.webp"
+      ]
+    },
+    {
+      "id": 24068,
+      "slug": "24068-development-promotions-july-campaign",
+      "title": "Development Promotions July Campaign",
+      "ends": "2026-08-31T09:18:00+00:00",
+      "ends_label": "31 Aug 2026",
+      "description_html": "",
+      "images": [
+        "assets/img/specials/hq/24068/01.webp",
+        "assets/img/specials/hq/24068/02.webp",
+        "assets/img/specials/hq/24068/03.webp",
+        "assets/img/specials/hq/24068/04.webp",
+        "assets/img/specials/hq/24068/05.webp"
       ]
     },
     {
