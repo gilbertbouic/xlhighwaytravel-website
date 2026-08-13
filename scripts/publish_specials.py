@@ -42,11 +42,11 @@ USER_AGENT = "XLHighwayTravel-SpecialsSync/1.0 (+https://xlhighwaytravel.co.za)"
 UPLOAD_READ = "https://xl-api-s.travelfind.me/api/upload/read/"
 
 # Already presented as hand-written sections — do not emit a second copy.
-FEATURED_IDS = {23472}
+FEATURED_IDS = {23472, 23877}
 FEATURED_NAME_RE = re.compile(
     r"jumeirah|thompsons|virgin atlantic|hurtigruten|development promotions|"
     r"\bavis\b|castleburn|legacy hotels|portswood|commodore|"
-    r"\bttc\b|trafalg|costsaver|insight vacation|madagascar",
+    r"\bttc\b|trafalg|costsaver|insight vacation|madagascar|\bmsc\b",
     re.I,
 )
 
