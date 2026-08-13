@@ -1,8 +1,9 @@
 name: Sync HQ specials
 
 on:
-  # Public page no longer shows the raw HQ flyer grid.
-  # Keep a manual run for staff; do not auto-commit unused assets.
+  schedule:
+    # Tuesday 11:00 South Africa Standard Time (UTC+2, no DST)
+    - cron: "0 9 * * 2"
   workflow_dispatch:
 
 permissions:
@@ -18,20 +19,23 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Pillow
-        run: pip install "Pillow>=10.0.0"
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr
+          pip install "Pillow>=10.0.0" pytesseract
 
-      - name: Pull current HQ flyers
+      - name: Pull current HQ specials into the page
         run: python3 scripts/publish_specials.py
 
-      - name: Commit if HQ specials changed
+      - name: Commit if specials changed
         run: |
           git config user.name "xlhighway-specials-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/data/specials.json assets/img/specials/hq sitemap.xml
+          git add specials.html sitemap.xml assets/img/specials/live
           if git diff --staged --quiet; then
-            echo "No HQ specials changes."
+            echo "No specials changes."
           else
-            git commit -m "Sync HQ specials ($(date -u +%Y-%m-%d))."
+            git commit -m "Sync current specials ($(date -u +%Y-%m-%d))."
             git push
           fi

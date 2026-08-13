@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Sync HQ promotional flyers onto this GitHub Pages site.
+"""Add current HQ specials to specials.html as deal cards.
 
-Fetches TravelFind categories 158 (campaigns) and 159 (Travel Tip Tuesday),
-hosts images locally, strips HQ/supplier links, writes assets/data/specials.json.
+Fetches TravelFind categories 158 and 159. Skips campaigns already written
+up on the page (Cape Town, Jumeirah, Virgin, Hurtigruten, tours, Avis,
+Castleburn). Airlink is not from HQ and is left untouched.
 
-Usage (from the site root or this folder):
+Usage:
   python3 scripts/publish_specials.py
   python3 scripts/publish_specials.py --dry-run
 """
@@ -16,14 +17,13 @@ import hashlib
 import json
 import re
 import shutil
-import sys
 import time
 import urllib.request
 from datetime import datetime, timezone
-from html import unescape
+from html import escape, unescape
 from io import BytesIO
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse
 
 try:
     from PIL import Image
@@ -31,18 +31,29 @@ except ImportError as e:  # pragma: no cover
     raise SystemExit("Pillow is required: pip install Pillow") from e
 
 SITE_ROOT = Path(__file__).resolve().parents[1]
+SPECIALS_HTML = SITE_ROOT / "specials.html"
+IMG_ROOT = SITE_ROOT / "assets" / "img" / "specials" / "live"
+MARKER_START = "<!-- LIVE-SPECIALS:START -->"
+MARKER_END = "<!-- LIVE-SPECIALS:END -->"
+
 CATEGORY_URL = "https://xl-api-s.travelfind.me/api/content/category"
-CATEGORIES = (
-    (158, "Campaigns"),
-    (159, "Travel Tip Tuesday"),
-)
-# Already written up as curated sections — do not duplicate in the flyer grid.
-FEATURED_IDS = {23472}  # Legacy Cape Town winter
+CATEGORIES = ((158, "Campaigns"), (159, "Travel Tip Tuesday"))
 USER_AGENT = "XLHighwayTravel-SpecialsSync/1.0 (+https://xlhighwaytravel.co.za)"
 UPLOAD_READ = "https://xl-api-s.travelfind.me/api/upload/read/"
-ALLOWED_TAGS = {"p", "br", "strong", "em", "b", "i", "ul", "ol", "li", "span"}
+
+# Already presented as hand-written sections — do not emit a second copy.
+FEATURED_IDS = {23472}
+FEATURED_NAME_RE = re.compile(
+    r"jumeirah|thompsons|virgin atlantic|hurtigruten|development promotions|"
+    r"\bavis\b|castleburn|legacy hotels|portswood|commodore|"
+    r"\bttc\b|trafalg|costsaver|insight vacation|madagascar",
+    re.I,
+)
+
 MAX_IMAGE_WIDTH = 1400
 WEBP_QUALITY = 82
+MAX_CARDS = 4
+PRICE_RE = re.compile(r"R\s*([0-9]{1,3}(?:[\s,][0-9]{3})+|[0-9]{3,})")
 
 
 def utc_now() -> datetime:
@@ -124,69 +135,32 @@ def clean_title(name: str) -> str:
     n = re.sub(r"^\s*XL\s*\|\s*", "", n, flags=re.I)
     n = re.sub(r"^\s*Travel Tip Tuesday\b[\s\-–—:]*", "", n, flags=re.I)
     n = re.sub(r"^\(\d{1,2}/\d{1,2}/\d{4}\)\s*[-–—:]?\s*", "", n)
-    n = re.sub(r"\s+", " ", n).strip()
+    n = re.sub(
+        r"\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4}\b",
+        "",
+        n,
+        flags=re.I,
+    )
+    n = re.sub(r"\s+Campaign\s*$", "", n, flags=re.I)
+    n = re.sub(
+        r"\s+(January|February|March|April|May|June|July|August|September|October|November|December)\s*$",
+        "",
+        n,
+        flags=re.I,
+    )
+    n = re.sub(r"\s+", " ", n).strip(" -–—")
     return n or "Travel special"
 
 
-def slugify(name: str, cid: object) -> str:
-    base = re.sub(r"[^a-zA-Z0-9]+", "-", clean_title(name)).strip("-").lower()[:48]
-    return f"{cid}-{base or 'campaign'}"
-
-
-def unwrap_anchors(html: str) -> str:
-    return re.sub(r"(?is)<a\b[^>]*>(.*?)</a>", r"\1", html)
-
-
-def sanitize_description(html: str | None) -> str:
-    if not html:
-        return ""
-    text = re.sub(r"(?is)<script.*?>.*?</script>", "", html)
-    text = re.sub(r"(?is)<style.*?>.*?</style>", "", text)
-    text = unwrap_anchors(text)
-    text = re.sub(r"https?://[^\s<\"']+", "", text)
-    text = re.sub(r"(?is)\s+href\s*=\s*(\"[^\"]*\"|'[^']*'|[^\s>]+)", "", text)
-
-    def keep_tag(match: re.Match[str]) -> str:
-        name = match.group(1).lower()
-        closing = match.group(0).lstrip().startswith("</")
-        if name not in ALLOWED_TAGS:
-            return ""
-        if closing:
-            return f"</{name}>"
-        if name == "br":
-            return "<br>"
-        return f"<{name}>"
-
-    text = re.sub(r"</?([a-zA-Z0-9]+)([^>]*)/?>", keep_tag, text)
-    text = unescape(text)
-    text = re.sub(r"(?is)<p>\s*(?:&nbsp;|\u00a0|\s)*</p>", "", text)
-    return text.strip()
-
-
-def tidy_description(html: str, title: str, raw_name: str) -> str:
-    if not html:
-        return ""
-    aliases = {title.lower(), raw_name.lower(), f"xl | {title}".lower()}
-    keep: list[str] = []
-    for chunk in re.findall(r"(?is)<p>(.*?)</p>", html) or [html]:
-        text = re.sub(r"<[^>]+>", " ", chunk)
-        text = unescape(text)
-        text = re.sub(r"\s+", " ", text).strip(" \t-–—:")
-        if not text or text.lower() in aliases:
-            continue
-        if re.fullmatch(r"(tiktok( video)?|video|link|click here|see more|10% commissionable|please ensure that this is always shared with your teams and itc.?s?)", text, re.I):
-            continue
-        if "booked via these special links" in text.lower():
-            continue
-        keep.append(f"<p>{text}</p>")
-    return "".join(keep)
+def is_duplicate(item: dict, title: str) -> bool:
+    if item.get("id") in FEATURED_IDS:
+        return True
+    blob = f"{item.get('name') or ''} {title}"
+    return bool(FEATURED_NAME_RE.search(blob))
 
 
 def is_public(item: dict, now: datetime) -> bool:
     if not isinstance(item, dict) or item.get("isDeleted"):
-        return False
-    cid = item.get("id")
-    if cid in FEATURED_IDS:
         return False
     if not promotion_assets(item):
         return False
@@ -198,12 +172,42 @@ def is_public(item: dict, now: datetime) -> bool:
     return True
 
 
-def assert_no_hq_leak(payload: str, where: str) -> None:
-    low = payload.lower()
-    if "xltravel.co.za" in low:
-        raise SystemExit(f"Refusing to publish: {where} still contains xltravel.co.za")
-    if "travelfind.me" in low:
-        raise SystemExit(f"Refusing to publish: {where} still contains a TravelFind URL")
+def parse_rand_amounts(text: str) -> list[int]:
+    amounts = []
+    for match in PRICE_RE.finditer(text or ""):
+        digits = re.sub(r"\D", "", match.group(1))
+        if not digits:
+            continue
+        value = int(digits)
+        if 200 <= value <= 500000:
+            amounts.append(value)
+    return amounts
+
+
+def format_rand(value: int) -> str:
+    return "R" + f"{value:,}".replace(",", " ")
+
+
+def extract_from_price(texts: list[str]) -> tuple[int | None, str | None]:
+    amounts: list[int] = []
+    for text in texts:
+        amounts.extend(parse_rand_amounts(text))
+    if not amounts:
+        return None, None
+    lowest = min(amounts)
+    return lowest, format_rand(lowest)
+
+
+def ocr_image(path: Path) -> str:
+    try:
+        import pytesseract
+    except ImportError:
+        return ""
+    try:
+        with Image.open(path) as im:
+            return pytesseract.image_to_string(im) or ""
+    except Exception:
+        return ""
 
 
 def to_webp(raw: bytes, dest: Path) -> None:
@@ -223,8 +227,8 @@ def source_key(url: str) -> str:
     return hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
 
 
-def publish_images(campaign_id: object, assets: list[dict], img_root: Path, skip_download: bool) -> list[str]:
-    folder = img_root / str(campaign_id)
+def publish_images(campaign_id: object, assets: list[dict], skip_download: bool) -> list[str]:
+    folder = IMG_ROOT / str(campaign_id)
     folder.mkdir(parents=True, exist_ok=True)
     manifest_path = folder / "manifest.json"
     prev = {}
@@ -252,13 +256,97 @@ def publish_images(campaign_id: object, assets: list[dict], img_root: Path, skip
         elif not dest.is_file():
             raise FileNotFoundError(f"Missing {dest} and download skipped")
         written.append({"key": key, "file": filename})
-        rels.append(f"assets/img/specials/hq/{campaign_id}/{filename}")
+        rels.append(f"assets/img/specials/live/{campaign_id}/{filename}")
     keep = {row["file"] for row in written}
     for leftover in folder.glob("*"):
         if leftover.name != "manifest.json" and leftover.name not in keep:
             leftover.unlink()
     manifest_path.write_text(json.dumps({"images": written}, indent=2) + "\n", encoding="utf-8")
     return rels
+
+
+def assert_no_hq_leak(payload: str, where: str) -> None:
+    low = payload.lower()
+    if "xltravel.co.za" in low:
+        raise SystemExit(f"Refusing to publish: {where} still contains xltravel.co.za")
+    if "travelfind.me" in low:
+        raise SystemExit(f"Refusing to publish: {where} still contains a TravelFind URL")
+
+
+def render_section(card: dict) -> str:
+    cid = card["id"]
+    title = card["title"]
+    ends_label = card.get("ends_label")
+    images = card["images"][:MAX_CARDS]
+    price_label = card.get("price_label")
+    interest = quote(title)
+    kicker = f"Valid until {ends_label}" if ends_label else "Current offer"
+    lead = "Book this offer through XL Highway Travel."
+    if price_label:
+        lead = f"From {price_label}. " + lead
+    if ends_label:
+        lead += f" Valid until {ends_label}."
+
+    cards = []
+    for i, src in enumerate(images):
+        alt = escape(title if i == 0 else f"{title} — {i + 1}")
+        price_html = ""
+        if i == 0 and price_label:
+            price_html = (
+                f'<div class="deal-price"><span class="now">{escape(price_label)}</span>'
+                f'<span class="unit">from</span></div>'
+            )
+            save = f'<span class="deal-save">From {escape(price_label)}</span>'
+        else:
+            save = ""
+        heading = escape(title) if i == 0 else escape(f"More from {title}")
+        cards.append(
+            "<article class=\"deal-card reveal\">\n"
+            "<div class=\"deal-card-media\">\n"
+            f'<img src="{escape(src)}" alt="{alt}" width="1080" height="1080" loading="lazy">\n'
+            f"{save}\n"
+            "</div>\n"
+            "<div class=\"deal-card-body\">\n"
+            f"<span class=\"brand\">{escape(kicker)}</span>\n"
+            f"<h3>{heading}</h3>\n"
+            f'<p class="meta">{escape(lead) if i == 0 else "Ask us to quote this offer for your dates."}</p>\n'
+            f"{price_html}\n"
+            f'<a class="btn btn-secondary" href="contact.html?interest={interest}">Enquire</a>\n'
+            "</div>\n"
+            "</article>"
+        )
+
+    return (
+        f'<section class="special-section" id="live-{cid}">\n'
+        '<div class="special-section-head reveal">\n'
+        '<div class="special-section-copy">\n'
+        f'<span class="section-kicker">{escape(kicker)}</span>\n'
+        f"<h2>{escape(title)}</h2>\n"
+        f"<p>{escape(lead)}</p>\n"
+        "</div>\n"
+        '<div class="special-section-media">\n'
+        f'<img src="{escape(images[0])}" alt="{escape(title)}" width="1080" height="1080" loading="lazy">\n'
+        "</div>\n"
+        "</div>\n"
+        f'<div class="deal-grid">\n{chr(10).join(cards)}\n</div>\n'
+        "</section>\n"
+    )
+
+
+def inject_html(fragment: str) -> None:
+    page = SPECIALS_HTML.read_text(encoding="utf-8")
+    if MARKER_START not in page or MARKER_END not in page:
+        raise SystemExit("specials.html is missing LIVE-SPECIALS markers")
+    block = f"{MARKER_START}\n{fragment}{MARKER_END}"
+    new_page = re.sub(
+        re.escape(MARKER_START) + r".*?" + re.escape(MARKER_END),
+        lambda _: block,
+        page,
+        count=1,
+        flags=re.S,
+    )
+    assert_no_hq_leak(new_page, "specials.html")
+    SPECIALS_HTML.write_text(new_page, encoding="utf-8")
 
 
 def update_sitemap(today: str) -> None:
@@ -284,63 +372,67 @@ def update_sitemap(today: str) -> None:
 def run(dry_run: bool = False, skip_download: bool = False) -> dict:
     now = utc_now()
     chosen: list[dict] = []
+    skipped = 0
     for cid, label in CATEGORIES:
         print(f"Fetching {label} ({cid}) …")
         data = http_get_json(f"{CATEGORY_URL}/{cid}")
         items = data if isinstance(data, list) else (data.get("content") or data.get("data") or [])
-        public = [it for it in items if is_public(it, now)]
-        print(f"  {len(items)} raw, {len(public)} public with flyers")
-        chosen.extend(public)
+        for it in items:
+            if not is_public(it, now):
+                continue
+            title = clean_title(it.get("name") or "")
+            if is_duplicate(it, title):
+                skipped += 1
+                print(f"  skip duplicate {it.get('id')} {title}")
+                continue
+            chosen.append(it)
+        print(f"  {len(items)} raw")
 
     chosen.sort(key=lambda it: parse_dt(it.get("specialsEnd")) or datetime.max.replace(tzinfo=timezone.utc))
+    print(f"{len(chosen)} new sections, {skipped} already on the page")
     if dry_run:
         for it in chosen:
-            print(f"  - {it.get('id')} {clean_title(it.get('name') or '')} ({len(promotion_assets(it))} images)")
+            print(f"  + {it.get('id')} {clean_title(it.get('name') or '')}")
         return {"count": len(chosen), "dry_run": True}
 
-    data_dir = SITE_ROOT / "assets" / "data"
-    img_root = SITE_ROOT / "assets" / "img" / "specials" / "hq"
-    data_dir.mkdir(parents=True, exist_ok=True)
-    img_root.mkdir(parents=True, exist_ok=True)
-
-    campaigns = []
+    IMG_ROOT.mkdir(parents=True, exist_ok=True)
+    cards = []
     for it in chosen:
         title = clean_title(it.get("name") or f"Campaign {it.get('id')}")
         print(f"  publishing {it.get('id')} {title}")
         end = parse_dt(it.get("specialsEnd"))
-        desc = tidy_description(sanitize_description(it.get("description")), title, it.get("name") or "")
-        images = publish_images(it["id"], promotion_assets(it), img_root, skip_download)
-        card = {
-            "id": it.get("id"),
-            "slug": slugify(title, it.get("id")),
-            "title": title,
-            "ends": end.isoformat() if end else None,
-            "ends_label": end.strftime("%d %b %Y") if end else None,
-            "description_html": desc,
-            "images": images,
-        }
-        assert_no_hq_leak(json.dumps(card, ensure_ascii=False), f"campaign {card['id']}")
-        campaigns.append(card)
+        images = publish_images(it["id"], promotion_assets(it), skip_download)
+        ocr_bits = [ocr_image(SITE_ROOT / rel) for rel in images[:3]]
+        desc = unescape(re.sub(r"<[^>]+>", " ", it.get("description") or ""))
+        amount, price_label = extract_from_price([desc, *ocr_bits])
+        cards.append(
+            {
+                "id": it.get("id"),
+                "title": title,
+                "ends_label": end.strftime("%d %b %Y") if end else None,
+                "images": images,
+                "price_label": price_label,
+                "price_amount": amount,
+            }
+        )
 
-    payload = {"generated_at": now.isoformat(), "count": len(campaigns), "campaigns": campaigns}
-    raw = json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
-    assert_no_hq_leak(raw, "specials.json")
-    (data_dir / "specials.json").write_text(raw, encoding="utf-8")
+    fragment = "".join(render_section(c) for c in cards)
+    inject_html(fragment)
 
-    keep = {str(c["id"]) for c in campaigns}
-    if img_root.is_dir():
-        for child in img_root.iterdir():
+    keep = {str(c["id"]) for c in cards}
+    if IMG_ROOT.is_dir():
+        for child in IMG_ROOT.iterdir():
             if child.is_dir() and child.name not in keep:
                 shutil.rmtree(child)
                 print(f"  removed expired {child.name}")
 
     update_sitemap(now.strftime("%Y-%m-%d"))
-    print(f"Wrote {data_dir / 'specials.json'} ({len(campaigns)} campaigns)")
-    return payload
+    print(f"Updated {SPECIALS_HTML} with {len(cards)} live sections")
+    return {"count": len(cards)}
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Sync HQ flyers onto the specials page")
+    parser = argparse.ArgumentParser(description="Sync HQ specials onto specials.html")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--skip-download", action="store_true")
     args = parser.parse_args(argv)
