@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-08-13T10:26:10.650054+00:00",
+  "count": 6,
+  "campaigns": [
+    {
+      "id": 22374,
+      "slug": "22374-thompsons-holidays-jumeirah-february-2026-campai",
+      "title": "Thompsons Holidays Jumeirah February 2026 Campaign",
+      "ends": "2026-08-22T13:09:00+00:00",
+      "ends_label": "22 Aug 2026",
+      "description_html": "",
+      "images": [
+        "assets/img/specials/hq/22374/01.webp",
+        "assets/img/specials/hq/22374/02.webp",
+        "assets/img/specials/hq/22374/03.webp",
+        "assets/img/specials/hq/22374/04.webp",
+        "assets/img/specials/hq/22374/05.webp",
+        "assets/img/specials/hq/22374/06.webp",
+        "assets/img/specials/hq/22374/07.webp",
+        "assets/img/specials/hq/22374/08.webp"
+      ]
+    },
+    {
+      "id": 23877,
+      "slug": "23877-msc-cruises-july-campaign",
+      "title": "MSC Cruises July Campaign",
+      "ends": "2026-08-31T04:52:00+00:00",
+      "ends_label": "31 Aug 2026",
+      "description_html": "",
+      "images": [
+        "assets/img/specials/hq/23877/01.webp",
+        "assets/img/specials/hq/23877/02.webp",
+        "assets/img/specials/hq/23877/03.webp",
+        "assets/img/specials/hq/23877/04.webp",
+        "assets/img/specials/hq/23877/05.webp",
+        "assets/img/specials/hq/23877/06.webp",
+        "assets/img/specials/hq/23877/07.webp",
+        "assets/img/specials/hq/23877/08.webp",
+        "assets/img/specials/hq/23877/09.webp"
+      ]
+    },
+    {
+      "id": 23922,
+      "slug": "23922-ttc-july-2026-campaign",
+      "title": "TTC July 2026 Campaign",
+      "ends": "2026-09-30T06:42:00+00:00",
+      "ends_label": "30 Sep 2026",
+      "description_html": "",
+      "images": [
+        "assets/img/specials/hq/23922/01.webp",
+        "assets/img/specials/hq/23922/02.webp",
+        "assets/img/specials/hq/23922/03.webp",
+        "assets/img/specials/hq/23922/04.webp",
+        "assets/img/specials/hq/23922/05.webp",
+        "assets/img/specials/hq/23922/06.webp",
+        "assets/img/specials/hq/23922/07.webp",
+        "assets/img/specials/hq/23922/08.webp"
+      ]
+    },
+    {
+      "id": 23970,
+      "slug": "23970-avis-july-campaign",
+      "title": "Avis July Campaign",
+      "ends": "2026-09-30T07:09:00+00:00",
+      "ends_label": "30 Sep 2026",
+      "description_html": "<p>Please quote XL TRAVEL CAMPAIGN C421801 to secure your discount</p>",
+      "images": [
+        "assets/img/specials/hq/23970/01.webp",
+        "assets/img/specials/hq/23970/02.webp",
+        "assets/img/specials/hq/23970/03.webp"
+      ]
+    },
+    {
+      "id": 24034,
+      "slug": "24034-legacy-hotels-and-resorts-july-campaign",
+      "title": "Legacy Hotels and Resorts July Campaign",
+      "ends": "2026-10-31T09:11:00+00:00",
+      "ends_label": "31 Oct 2026",
+      "description_html": "",
+      "images": [
+        "assets/img/specials/hq/24034/01.webp",
+        "assets/img/specials/hq/24034/02.webp",
+        "assets/img/specials/hq/24034/03.webp",
+        "assets/img/specials/hq/24034/04.webp",
+        "assets/img/specials/hq/24034/05.webp",
+        "assets/img/specials/hq/24034/06.webp",
+        "assets/img/specials/hq/24034/07.webp"
+      ]
+    },
+    {
+      "id": 23433,
+      "slug": "23433-ttc-may-2026-campaign",
+      "title": "TTC May 2026 Campaign",
+      "ends": "2026-12-27T07:28:00+00:00",
+      "ends_label": "27 Dec 2026",
+      "description_html": "",
+      "images": [
+        "assets/img/specials/hq/23433/01.webp",
+        "assets/img/specials/hq/23433/02.webp",
+        "assets/img/specials/hq/23433/03.webp",
+        "assets/img/specials/hq/23433/04.webp",
+        "assets/img/specials/hq/23433/05.webp",
+        "assets/img/specials/hq/23433/06.webp",
+        "assets/img/specials/hq/23433/07.webp",
+        "assets/img/specials/hq/23433/08.webp"
+      ]
+    }
+  ]
+}

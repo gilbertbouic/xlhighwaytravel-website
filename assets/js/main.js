@@ -78,45 +78,48 @@
     reveals.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // Contact form → mailto (static GitHub hosting)
+  // Contact / specials forms → mailto (static GitHub hosting)
+  window.xlSubmitQuoteForm = function (form, successEl) {
+    const data = new FormData(form);
+    const name = (data.get("name") || "").toString().trim();
+    const email = (data.get("email") || "").toString().trim();
+    const phone = (data.get("phone") || "").toString().trim();
+    const interest = (data.get("interest") || "").toString().trim();
+    const dates = (data.get("dates") || "").toString().trim();
+    const message = (data.get("message") || "").toString().trim();
+
+    if (!name || !email || !message) {
+      alert("Please fill in your name, email and message.");
+      return false;
+    }
+
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Phone: ${phone}`,
+      `Interest: ${interest}`,
+      `Travel dates: ${dates}`,
+      "",
+      message,
+    ].join("\n");
+
+    const subject = encodeURIComponent(
+      `Travel enquiry from ${name}${interest ? " — " + interest : ""}`
+    );
+    window.location.href = `mailto:bookings@xlhighwaytravel.co.za?subject=${subject}&body=${encodeURIComponent(body)}`;
+
+    if (successEl) {
+      successEl.hidden = false;
+      successEl.focus();
+    }
+    return true;
+  };
+
   const form = document.getElementById("quote-form");
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const data = new FormData(form);
-      const name = (data.get("name") || "").toString().trim();
-      const email = (data.get("email") || "").toString().trim();
-      const phone = (data.get("phone") || "").toString().trim();
-      const interest = (data.get("interest") || "").toString().trim();
-      const dates = (data.get("dates") || "").toString().trim();
-      const message = (data.get("message") || "").toString().trim();
-
-      if (!name || !email || !message) {
-        alert("Please fill in your name, email and message.");
-        return;
-      }
-
-      const body = [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        `Interest: ${interest}`,
-        `Travel dates: ${dates}`,
-        "",
-        message,
-      ].join("\n");
-
-      const subject = encodeURIComponent(
-        `Travel enquiry from ${name}${interest ? " — " + interest : ""}`
-      );
-      const mailto = `mailto:bookings@xlhighwaytravel.co.za?subject=${subject}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
-
-      const note = document.getElementById("form-success");
-      if (note) {
-        note.hidden = false;
-        note.focus();
-      }
+      window.xlSubmitQuoteForm(form, document.getElementById("form-success"));
     });
   }
 
