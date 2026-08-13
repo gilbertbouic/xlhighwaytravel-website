@@ -28,6 +28,16 @@ python3 scripts/publish_specials.py --dry-run
 - Submit `https://xlhighwaytravel.co.za/sitemap.xml` in [Google Search Console](https://search.google.com/search-console) and Bing Webmaster Tools.
 - Analytics: add a GA4 measurement ID when you have one. Do not invent a tracking snippet. Until then, use Search Console for queries and WhatsApp/email counts for leads.
 
+## Old WordPress URLs
+
+Google still lists pre-migration slugs such as `/contact-form/` and `/t-cs/`. GitHub Pages cannot send a real HTTP 301, so those paths are noindex stubs (canonical + refresh + JavaScript) that send people to the current page. Unknown old URLs hit `404.html`, which uses the same map. Image and attachment leftovers stay as 404s so Google can drop them. Do not add stub folders to the sitemap.
+
+```bash
+python3 scripts/write_legacy_redirects.py
+```
+
+A true 301 needs DNS in front of GitHub Pages (for example Cloudflare). Until then these stubs are the best the host can do.
+
 ## Brand
 
 Logo preserved. Colours from XL branding palette (`#AB2B2B`, `#FB7F18`, `#8E0D1A`, etc.).
