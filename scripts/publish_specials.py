@@ -3,7 +3,7 @@
 
 Fetches TravelFind categories 158 and 159. Skips campaigns already written
 up on the page (Cape Town, Jumeirah, Virgin, Hurtigruten, tours, Avis,
-Castleburn). Airlink is not from HQ and is left untouched.
+Castleburn, One&Only, DSC Transfers, Bakubung / Kwa Maritane). Airlink is not from HQ and is left untouched.
 
 Usage:
   python3 scripts/publish_specials.py
@@ -46,6 +46,7 @@ FEATURED_IDS = {23472, 23877}
 FEATURED_NAME_RE = re.compile(
     r"jumeirah|thompsons|virgin atlantic|hurtigruten|development promotions|"
     r"\bavis\b|castleburn|legacy hotels|portswood|commodore|"
+    r"bakubung|bakubang|kwa.?maritane|pilanesberg|one.?only|dsc transfers|"
     r"\bttc\b|trafalg|costsaver|insight vacation|madagascar|\bmsc\b",
     re.I,
 )
