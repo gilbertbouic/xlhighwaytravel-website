@@ -759,6 +759,42 @@ button, input, select, textarea { font: inherit; }
   margin-top: 0.15rem;
 }
 
+.quote-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  gap: 0 1.5rem;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+}
+.quote-card--featured .quote-photo {
+  margin: 0;
+  background: var(--beige);
+}
+.quote-card--featured .quote-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 240px;
+}
+.quote-card--featured .quote-body {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 720px) {
+  .quote-card--featured {
+    grid-template-columns: 1fr;
+  }
+  .quote-card--featured .quote-photo img {
+    max-height: 280px;
+  }
+  .quote-card--featured .quote-body {
+    padding: 1.15rem 1.25rem 1.35rem;
+  }
+}
+
 /* CTA band */
 .cta-band {
   position: relative;
