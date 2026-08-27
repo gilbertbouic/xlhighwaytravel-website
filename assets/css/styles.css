@@ -1168,6 +1168,9 @@ button, input, select, textarea { font: inherit; }
 .contact-tile .social-link--wa {
   color: #25D366;
 }
+.contact-tile .social-link--ig {
+  color: #E4405F;
+}
 .contact-tile .social-icon {
   width: 1.35rem;
   height: 1.35rem;
@@ -1287,7 +1290,7 @@ button, input, select, textarea { font: inherit; }
 /* Map-style contact strip */
 .contact-strip {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
 }
 @media (max-width: 700px) {
