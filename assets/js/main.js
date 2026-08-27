@@ -1,5 +1,5 @@
 /**
- * XL Highway Travel — site interactions
+ * XL Highway Travel - site interactions
  */
 (function () {
   "use strict";
@@ -104,7 +104,7 @@
     ].join("\n");
 
     const subject = encodeURIComponent(
-      `Travel enquiry from ${name}${interest ? " — " + interest : ""}`
+      `Travel enquiry from ${name}${interest ? " - " + interest : ""}`
     );
     window.location.href = `mailto:bookings@xlhighwaytravel.co.za?subject=${subject}&body=${encodeURIComponent(body)}`;
 
@@ -123,7 +123,7 @@
     });
   }
 
-  // Client stories — horizontal scroller (arrows + slow auto-scroll)
+  // Client stories - horizontal scroller (arrows + slow auto-scroll)
   document.querySelectorAll(".testimonials-scroller").forEach((scroller) => {
     const viewport = scroller.querySelector(".testimonials-viewport");
     const track = scroller.querySelector(".testimonials");

@@ -1,6 +1,6 @@
-# XL Highway Travel — Website
+# XL Highway Travel - Website
 
-Static site for [xlhighwaytravel.co.za](https://xlhighwaytravel.co.za) — hosted on GitHub Pages.
+Static site for [xlhighwaytravel.co.za](https://xlhighwaytravel.co.za) - hosted on GitHub Pages.
 
 ## Live (GitHub Pages)
 

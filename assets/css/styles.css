@@ -1,5 +1,5 @@
 /* ==========================================================================
-   XL Highway Travel — Design System
+   XL Highway Travel - Design System
    Brand colours from official palette (Branding codes.docx + Colour pallett.png)
    ========================================================================== */
 
@@ -716,7 +716,7 @@ button, input, select, textarea { font: inherit; }
 }
 .feature-badge span { font-size: 0.88rem; color: var(--muted); }
 
-/* Testimonials — horizontal scroller */
+/* Testimonials - horizontal scroller */
 .testimonials-scroller {
   position: relative;
   display: grid;
@@ -1341,7 +1341,7 @@ button, input, select, textarea { font: inherit; }
   body { background: #fff; color: #000; }
 }
 
-/* ========== About page — owner spotlight ========== */
+/* ========== About page - owner spotlight ========== */
 .about-hero {
   position: relative;
   padding: clamp(3.5rem, 8vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem);
