@@ -716,40 +716,88 @@ button, input, select, textarea { font: inherit; }
 }
 .feature-badge span { font-size: 0.88rem; color: var(--muted); }
 
-/* Testimonials */
-.testimonials {
+/* Testimonials — horizontal scroller */
+.testimonials-scroller {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.15rem;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
 }
-@media (max-width: 860px) {
-  .testimonials { grid-template-columns: 1fr; }
+.testimonials-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+  padding: 0.15rem 0.1rem 0.65rem;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 18px, #000 calc(100% - 18px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 18px, #000 calc(100% - 18px), transparent);
+}
+.testimonials-viewport:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+.testimonials {
+  display: flex;
+  gap: 1.15rem;
+  width: max-content;
+}
+.testimonials-nav {
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--red);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  place-items: center;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s var(--ease);
+}
+.testimonials-nav:hover {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+  transform: translateY(-1px);
 }
 .quote-card {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.35rem 1.4rem 1.25rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  flex: 0 0 min(24rem, 82vw);
+  width: min(24rem, 82vw);
+  height: 17.5rem;
+  min-width: 0;
 }
 .stars {
   color: var(--gold);
   letter-spacing: 0.08em;
   font-size: 0.95rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 .quote-card blockquote {
-  margin: 0 0 1.25rem;
-  font-size: 0.98rem;
+  margin: 0 0 0.85rem;
+  font-size: 0.96rem;
   color: var(--ink-soft);
   flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 0.3rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sand) transparent;
 }
 .quote-card footer {
   font-weight: 700;
   font-size: 0.9rem;
   color: var(--ink);
+  margin-top: auto;
 }
 .quote-card footer span {
   display: block;
@@ -757,6 +805,12 @@ button, input, select, textarea { font: inherit; }
   color: var(--muted);
   font-size: 0.82rem;
   margin-top: 0.15rem;
+}
+@media (max-width: 640px) {
+  .testimonials-scroller {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .testimonials-nav { display: none; }
 }
 
 /* CTA band */
