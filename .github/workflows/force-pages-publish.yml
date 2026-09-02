@@ -2,9 +2,6 @@ name: Force Pages publish
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - .github/workflows/force-pages-publish.yml
 
 permissions:
   contents: write
@@ -14,46 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Drop leftover live Uniworld and bust Pages cache
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import re
-          p = Path("specials.html")
-          t = p.read_text(encoding="utf-8")
-          t, n = re.subn(
-              r"<!-- LIVE-SPECIALS:START -->.*?<!-- LIVE-SPECIALS:END -->",
-              "<!-- LIVE-SPECIALS:START -->\n<!-- LIVE-SPECIALS:END -->",
-              t,
-              count=1,
-              flags=re.S,
-          )
-          t = re.sub(
-              r'<section class="special-section" id="live-24316">.*?</section>\s*',
-              "",
-              t,
-              count=1,
-              flags=re.S,
-          )
-          t = t.replace(
-              "<!-- pages-bust 2026-09-02 -->\n",
-              "",
-          )
-          t = t.replace(
-              "<!-- LIVE-SPECIALS:END -->",
-              "<!-- LIVE-SPECIALS:END -->\n<!-- pages-bust 2026-09-02b -->",
-              1,
-          )
-          if 'id="live-24316"' in t:
-              raise SystemExit("live-24316 still present")
-          p.write_text(t, encoding="utf-8")
-          print("specials.html updated", n)
-          PY
+      - name: Drop leftover live Uniworld block
+        run: python3 scripts/remove_specials_dupes.py
       - name: Commit
         run: |
           git config user.name "xlhighwaytravel-bot"
           git config user.email "22957074+gilbertbouic@users.noreply.github.com"
-          git add specials.html
+          git add specials.html scripts/publish_specials.py
           git diff --cached --quiet && echo No changes && exit 0
-          git commit -m "Drop bottom Uniworld live block and republish specials"
+          git commit -m "Drop leftover live specials cards"
           git push
