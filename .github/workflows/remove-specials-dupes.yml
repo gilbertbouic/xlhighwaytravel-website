@@ -1,0 +1,27 @@
+name: Remove specials duplicates
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/remove_specials_dupes.py
+      - .github/workflows/remove-specials-dupes.yml
+
+permissions:
+  contents: write
+
+jobs:
+  dedupe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Strip duplicate live cards
+        run: python3 scripts/remove_specials_dupes.py
+      - name: Commit
+        run: |
+          git config user.name "xlhighwaytravel-bot"
+          git config user.email "22957074+gilbertbouic@users.noreply.github.com"
+          git add specials.html scripts/publish_specials.py
+          git diff --cached --quiet && echo No changes && exit 0
+          git commit -m "Remove duplicate Uniworld live cards from specials"
+          git push
