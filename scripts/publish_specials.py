@@ -2,7 +2,7 @@
 """Add current HQ specials to specials.html as deal cards.
 
 Fetches TravelFind categories 158 and 159. Skips campaigns already written
-up on the page (Cape Town, Jumeirah, Virgin, NCL, tours, Avis,
+up on the page (Cape Town, Jumeirah, Virgin, NCL, Uniworld, Club Med, tours, Avis,
 Castleburn, One&Only, DSC Transfers, Bakubung / Kwa Maritane). Airlink is not from HQ and is left untouched.
 
 Usage:
@@ -42,9 +42,9 @@ USER_AGENT = "XLHighwayTravel-SpecialsSync/1.0 (+https://xlhighwaytravel.co.za)"
 UPLOAD_READ = "https://xl-api-s.travelfind.me/api/upload/read/"
 
 # Already presented as hand-written sections — do not emit a second copy.
-FEATURED_IDS = {23472, 23877}
+FEATURED_IDS = {23472, 23877, 24316}
 FEATURED_NAME_RE = re.compile(
-    r"jumeirah|thompsons|virgin atlantic|hurtigruten|norwegian cruise|\bncl\b|development promotions|"
+    r"uniworld|club med|phuket|jumeirah|thompsons|virgin atlantic|hurtigruten|norwegian cruise|\bncl\b|development promotions|"
     r"\bavis\b|castleburn|legacy hotels|portswood|commodore|"
     r"bakubung|bakubang|kwa.?maritane|pilanesberg|one.?only|dsc transfers|"
     r"\bttc\b|trafalg|costsaver|insight vacation|madagascar|\bmsc\b",
