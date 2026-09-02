@@ -2,10 +2,6 @@ name: Prune expired specials
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - .github/workflows/prune-expired-specials.yml
-      - scripts/prune_expired_specials.py
 
 permissions:
   contents: write
@@ -19,7 +15,7 @@ jobs:
           fetch-depth: 0
       - name: Restore script and prune page
         run: |
-          git checkout c96d9fd9562baa2f8e9425412e70ad0febf4d354 -- scripts/publish_specials.py
+          git checkout c96d9fd9562baa2f8e9425412e70ad0febf4d354 -- scripts/publish_specials.py || true
           python3 scripts/prune_expired_specials.py
       - name: Commit
         run: |
@@ -27,5 +23,5 @@ jobs:
           git config user.email "22957074+gilbertbouic@users.noreply.github.com"
           git add specials.html scripts/publish_specials.py
           git diff --cached --quiet && echo No changes && exit 0
-          git commit -m "Remove expired Cape Town winter, MSC and Hurtigruten specials; add NCL SMM52 sale"
+          git commit -m "Remove expired specials"
           git push
