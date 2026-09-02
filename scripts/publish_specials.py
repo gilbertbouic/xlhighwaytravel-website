@@ -44,14 +44,15 @@ UPLOAD_READ = "https://xl-api-s.travelfind.me/api/upload/read/"
 # Already presented as hand-written sections — do not emit a second copy.
 FEATURED_IDS = {23472, 23877}
 FEATURED_NAME_RE = re.compile(
-    r"jumeirah|thompsons|virgin atlantic|hurtigruten|norwegian cruise|\\bncl\\b|development promotions|"
-    r"\\bavis\\b|castleburn|legacy hotels|portswood|commodore|"
+    r"jumeirah|thompsons|virgin atlantic|hurtigruten|norwegian cruise|\bncl\b|development promotions|"
+    r"\bavis\b|castleburn|legacy hotels|portswood|commodore|"
     r"bakubung|bakubang|kwa.?maritane|pilanesberg|one.?only|dsc transfers|"
-    r"\\bttc\\b|trafalg|costsaver|insight vacation|madagascar|\\bmsc\\b",
+    r"\bttc\b|trafalg|costsaver|insight vacation|madagascar|\bmsc\b",
     re.I,
 )
 
 MAX_IMAGE_WIDTH = 1400
 WEBP_QUALITY = 82
 MAX_CARDS = 4
-PRICE_RE = re.compile(r"R\\s*([0-9]{1,3}(?:[\\s,][0-9]{3})+|[0-9]{3,})")
+PRICE_RE = re.compile(r"R\s*([0-9]{1,3}(?:[\s,][0-9]{3})+|[0-9]{3,})")
+
