@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Restore the Guided tours section tag dropped during the MSC insert."""
 from pathlib import Path
+import re
 
 SPECIALS = Path(__file__).resolve().parents[1] / "specials.html"
 
@@ -12,24 +13,14 @@ def main() -> None:
         SPECIALS.write_text(text, encoding="utf-8")
         print("tours wrapper already present")
         return
-    needle = (
-        '</section>\n'
-        '<div class="special-section-head reveal">\n'
-        '<div class="special-section-copy">\n'
-        '<span class="section-kicker">Save up to 30%'
+    text, n = re.subn(
+        r'(</section>\s*)(<div class="special-section-head reveal">\s*<div class="special-section-copy">\s*<span class="section-kicker">Save up to 30%)',
+        r'\1<section class="special-section" id="tours">\n\2',
+        text,
+        count=1,
     )
-    insert = (
-        '</section>\n'
-        '<section class="special-section" id="tours">\n'
-        '<div class="special-section-head reveal">\n'
-        '<div class="special-section-copy">\n'
-        '<span class="section-kicker">Save up to 30%'
-    )
-    if needle not in text:
-        raise SystemExit("tours head not found")
-    text = text.replace(needle, insert, 1)
-    if 'id="tours"' not in text:
-        raise SystemExit("tours id still missing")
+    if n != 1 or 'id="tours"' not in text:
+        raise SystemExit(f"tours restore failed n={n}")
     SPECIALS.write_text(text, encoding="utf-8")
     print("restored tours section")
 
