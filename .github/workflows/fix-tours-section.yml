@@ -1,0 +1,26 @@
+name: Fix tours section wrapper
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/fix_tours_section.py
+      - .github/workflows/fix-tours-section.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/fix_tours_section.py
+      - name: Commit
+        run: |
+          git config user.name "xlhighwaytravel-bot"
+          git config user.email "22957074+gilbertbouic@users.noreply.github.com"
+          git add specials.html
+          git diff --cached --quiet && echo No changes && exit 0
+          git commit -m "Restore Guided tours section wrapper on specials"
+          git push
