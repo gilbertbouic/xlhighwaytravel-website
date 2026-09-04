@@ -2,10 +2,6 @@ name: Fix tours section wrapper
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - scripts/fix_tours_section.py
-      - .github/workflows/fix-tours-section.yml
 
 permissions:
   contents: write
