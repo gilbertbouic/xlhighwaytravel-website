@@ -14,7 +14,7 @@ python3 -m http.server 8080
 
 ## Specials sync
 
-Every **Tuesday at 11:00 South Africa time**, a GitHub Action copies current XL Travel HQ specials onto `specials.html` as deal cards. Campaigns already written up on the page (Cape Town, Jumeirah, Virgin, NCL, Uniworld, Club Med, tours, Avis, Castleburn, One&Only, DSC Transfers, Bakubung / Kwa Maritane) are skipped. The Airlink Lanseria-Harare section is ours and is never replaced.
+Every **Tuesday at 11:00 South Africa time**, a GitHub Action copies current XL Travel HQ specials onto `specials.html` as deal cards. Campaigns already written up on the page (Cape Town, Jumeirah, Virgin, NCL, MSC, Uniworld, Club Med, tours, Avis, Castleburn, One&Only, DSC Transfers, Bakubung / Kwa Maritane) are skipped. The Airlink Lanseria-Harare section is ours and is never replaced.
 
 ```bash
 python3 scripts/publish_specials.py
