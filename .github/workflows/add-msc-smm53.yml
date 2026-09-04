@@ -2,10 +2,6 @@ name: Add MSC SMM53 special
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - scripts/add_msc_smm53.py
-      - .github/workflows/add-msc-smm53.yml
 
 permissions:
   contents: write
