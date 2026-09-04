@@ -1,0 +1,27 @@
+name: Add MSC SMM53 special
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/add_msc_smm53.py
+      - .github/workflows/add-msc-smm53.yml
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Insert MSC brand campaign
+        run: python3 scripts/add_msc_smm53.py
+      - name: Commit
+        run: |
+          git config user.name "xlhighwaytravel-bot"
+          git config user.email "22957074+gilbertbouic@users.noreply.github.com"
+          git add specials.html sitemap.xml README.md
+          git diff --cached --quiet && echo No changes && exit 0
+          git commit -m "Add MSC Cruises SMM53 brand campaign to specials (quote on request)"
+          git push
