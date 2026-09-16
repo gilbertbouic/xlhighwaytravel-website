@@ -47,7 +47,7 @@ FEATURED_NAME_RE = re.compile(
     r"uniworld|club med|phuket|jumeirah|thompsons|virgin atlantic|hurtigruten|norwegian cruise|\bncl\b|development promotions|"
     r"\bavis\b|castleburn|legacy hotels|portswood|commodore|"
     r"bakubung|bakubang|kwa.?maritane|pilanesberg|tshukudu|one.?only|dsc transfers|"
-    r"\bttc\b|trafalg|costsaver|insight vacation|madagascar|\bmsc\b",
+    r"\bttc\b|trafalg|costsaver|insight vacation|madagascar|\bmsc\b|thailand|sunwing|burasari|bangtao|koh samui|phi.?phi",
     re.I,
 )
 
