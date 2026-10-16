@@ -27,24 +27,50 @@
 <script type="application/ld+json">
 {
 "@context":"https://schema.org","@type":"ItemList","name":"Current travel specials","url":"https://xlhighwaytravel.co.za/specials.html","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Trafalgar guided holidays, save up to 15%","url":"https://xlhighwaytravel.co.za/specials.html#trafalgar"},
-{"@type":"ListItem","position":2,"name":"Club Med Season Opening Sale 2027","url":"https://xlhighwaytravel.co.za/specials.html#clubmed-2027"},
-{"@type":"ListItem","position":3,"name":"Uniworld luxury river cruising","url":"https://xlhighwaytravel.co.za/specials.html#uniworld"},
-{"@type":"ListItem","position":4,"name":"Club Med Phuket","url":"https://xlhighwaytravel.co.za/specials.html#phuket"},
-{"@type":"ListItem","position":5,"name":"Amazing Thailand","url":"https://xlhighwaytravel.co.za/specials.html#thailand"},
-{"@type":"ListItem","position":6,"name":"Tshukudu Bush Lodge","url":"https://xlhighwaytravel.co.za/specials.html#tshukudu"},
-{"@type":"ListItem","position":7,"name":"One&Only Cape Town","url":"https://xlhighwaytravel.co.za/specials.html#oneonly"},
-{"@type":"ListItem","position":8,"name":"DSC Transfers","url":"https://xlhighwaytravel.co.za/specials.html#dsc-transfers"},
-{"@type":"ListItem","position":9,"name":"Virgin Atlantic Premium","url":"https://xlhighwaytravel.co.za/specials.html#virgin-premium"},
-{"@type":"ListItem","position":10,"name":"Jumeirah Dubai","url":"https://xlhighwaytravel.co.za/specials.html#jumeirah"},
-{"@type":"ListItem","position":11,"name":"MSC Cruises","url":"https://xlhighwaytravel.co.za/specials.html#msc"},
-{"@type":"ListItem","position":12,"name":"Madagascar all-inclusive","url":"https://xlhighwaytravel.co.za/specials.html#madagascar"},
-{"@type":"ListItem","position":13,"name":"Castleburn","url":"https://xlhighwaytravel.co.za/specials.html#castleburn"},
-{"@type":"ListItem","position":14,"name":"Avis 4-for-3","url":"https://xlhighwaytravel.co.za/specials.html#avis"},
-{"@type":"ListItem","position":15,"name":"Airlink Lanseria-Harare","url":"https://xlhighwaytravel.co.za/specials.html#airlink"}
+{"@type":"ListItem","position":1,"name":"Virgin Atlantic Upper Class","url":"https://xlhighwaytravel.co.za/specials.html#virgin-upper"},
+{"@type":"ListItem","position":2,"name":"Trafalgar guided holidays, save up to 15%","url":"https://xlhighwaytravel.co.za/specials.html#trafalgar"},
+{"@type":"ListItem","position":3,"name":"Club Med Season Opening Sale 2027","url":"https://xlhighwaytravel.co.za/specials.html#clubmed-2027"},
+{"@type":"ListItem","position":4,"name":"Uniworld luxury river cruising","url":"https://xlhighwaytravel.co.za/specials.html#uniworld"},
+{"@type":"ListItem","position":5,"name":"Club Med Phuket","url":"https://xlhighwaytravel.co.za/specials.html#phuket"},
+{"@type":"ListItem","position":6,"name":"Amazing Thailand","url":"https://xlhighwaytravel.co.za/specials.html#thailand"},
+{"@type":"ListItem","position":7,"name":"Tshukudu Bush Lodge","url":"https://xlhighwaytravel.co.za/specials.html#tshukudu"},
+{"@type":"ListItem","position":8,"name":"One&Only Cape Town","url":"https://xlhighwaytravel.co.za/specials.html#oneonly"},
+{"@type":"ListItem","position":9,"name":"DSC Transfers","url":"https://xlhighwaytravel.co.za/specials.html#dsc-transfers"},
+{"@type":"ListItem","position":10,"name":"Virgin Atlantic Premium","url":"https://xlhighwaytravel.co.za/specials.html#virgin-premium"},
+{"@type":"ListItem","position":11,"name":"Jumeirah Dubai","url":"https://xlhighwaytravel.co.za/specials.html#jumeirah"},
+{"@type":"ListItem","position":12,"name":"MSC Cruises","url":"https://xlhighwaytravel.co.za/specials.html#msc"},
+{"@type":"ListItem","position":13,"name":"Madagascar all-inclusive","url":"https://xlhighwaytravel.co.za/specials.html#madagascar"},
+{"@type":"ListItem","position":14,"name":"Castleburn","url":"https://xlhighwaytravel.co.za/specials.html#castleburn"},
+{"@type":"ListItem","position":15,"name":"Avis 4-for-3","url":"https://xlhighwaytravel.co.za/specials.html#avis"},
+{"@type":"ListItem","position":16,"name":"Airlink Lanseria-Harare","url":"https://xlhighwaytravel.co.za/specials.html#airlink"}
 ]}
 </script>
-</head>
+<style>
+.sp-grid-head{margin:2rem 0 1rem}.sp-grid-head h2{margin:0 0 .25rem}
+.sp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;margin-bottom:2.5rem}
+.sp-tile{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.sp-tile:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.sp-open{all:unset;display:flex;flex-direction:column;height:100%;width:100%;cursor:pointer;box-sizing:border-box}
+.sp-open:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.sp-media{position:relative;display:block;aspect-ratio:1/1;background:var(--paper-warm);overflow:hidden}
+.sp-media img[src*="partners/"]{object-fit:contain!important;padding:1.5rem;background:#fff}.sp-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}.sp-tile:hover .sp-media img{transform:scale(1.04)}
+.sp-valid{position:absolute;left:.75rem;bottom:.75rem;background:var(--burgundy);color:#fff;font-size:.78rem;font-weight:600;padding:.3rem .7rem;border-radius:999px}
+.sp-valid.sp-soon{background:var(--gold)}.sp-valid.sp-ask{background:rgba(26,18,16,.75)}
+.sp-body{display:flex;flex-direction:column;gap:.4rem;padding:1rem 1.1rem 1.2rem;flex:1}
+.sp-title{font-family:var(--font-display);font-size:1.25rem;line-height:1.2;color:var(--ink)}
+.sp-teaser{font-size:.92rem;color:var(--muted);flex:1}
+.sp-view{align-self:flex-start;margin-top:.4rem;pointer-events:none}
+.sp-tile.is-expired{display:none}
+.sp-dialog{width:min(1100px,94vw);max-height:90vh;padding:0;border:0;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);background:var(--paper)}
+.sp-dialog::backdrop{background:rgba(26,18,16,.6)}
+.sp-dialog-bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 1.25rem;background:var(--burgundy);color:#fff}
+.sp-dialog-bar strong{font-family:var(--font-display);font-size:1.1rem}
+.sp-close{background:rgba(255,255,255,.15);color:#fff;border:0;width:38px;height:38px;border-radius:50%;font-size:1.6rem;line-height:1;cursor:pointer}
+.sp-dialog-body{padding:1.25rem 1.5rem 1.5rem}.sp-dialog-body .special-section{padding:0;margin:0;border:0}
+.sp-dialog .reveal{opacity:1!important;transform:none!important}
+.sp-actions{position:sticky;bottom:0;background:var(--paper);padding:.9rem 0 .2rem;border-top:1px solid var(--line);margin-top:1.25rem}
+@media(max-width:600px){.sp-grid{grid-template-columns:1fr 1fr;gap:.75rem}.sp-body{padding:.7rem .75rem .9rem}.sp-title{font-size:1rem}.sp-teaser{display:none}.sp-valid{font-size:.68rem;left:.4rem;bottom:.4rem}.sp-dialog{width:100vw;max-width:100vw;max-height:100vh;height:100vh;border-radius:0;margin:0}.sp-dialog-body{padding:1rem}}
+</style></head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="topbar"><div class="container topbar-inner">
@@ -88,54 +114,125 @@
 <strong style="display:block;margin-bottom:0.35rem">Key dates</strong>
 <p class="text-muted" style="margin:0;font-size:0.92rem;display:flex;flex-wrap:wrap;align-items:center;gap:0.55rem">Bookings: <a class="social-link social-link--mail" href="mailto:bookings@xlhighwaytravel.co.za" aria-label="Email bookings@xlhighwaytravel.co.za"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a> <a class="social-link social-link--wa" href="https://wa.me/27828261451" aria-label="WhatsApp XL Highway Travel" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a> <a class="social-link social-link--phone" href="tel:+27317655845" aria-label="Call +27 31 765 5845"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a></p>
 </div>
-<div class="specials-deadlines">
-<span class="deadline-chip urgent">Trafalgar · save up to 15% · from R30 430</span>
-<span class="deadline-chip">Club Med 2027, sale 13-16 Oct</span>
-<span class="deadline-chip">Uniworld from R48 000 · sales to 31 Oct</span>
-<span class="deadline-chip">Club Med Phuket from R42 850</span>
-<span class="deadline-chip">Thailand from R19 999 · book by 31 Oct</span>
-<span class="deadline-chip">One&amp;Only Cape Town from R12 560</span>
-<span class="deadline-chip">DSC chauffeur transfers</span>
-<span class="deadline-chip">Jumeirah Dubai from R44 130 (SMM50)</span>
-<span class="deadline-chip">MSC Cruises · quote on request</span>
-<span class="deadline-chip">Avis 4-for-3 · book to 28 Feb 2027</span>
-<span class="deadline-chip">Madagascar travel 3 Nov – 8 Dec 2026</span>
-<span class="deadline-chip">Castleburn sales 1 Aug – 31 Oct 2026</span>
-</div>
+
 </div>
 <div class="specials-tnc reveal" style="margin-bottom:1.5rem">
 <h3>Before you fly - SARS traveller declaration</h3>
 <p>If you are entering or leaving South Africa, complete your customs declaration online before you travel. Required from 1 July 2026. One declaration per traveller, including children. <a href="https://tools.sars.gov.za/sarsonlinequery/traveller" target="_blank" rel="noopener">Complete the SARS declaration</a> · <a href="https://www.sars.gov.za/travellerdeclaration/" target="_blank" rel="noopener">How it works</a></p>
 </div>
-<nav class="specials-anchor-nav reveal" aria-label="Specials categories">
-<a href="#trafalgar">1. Trafalgar</a>
-<a href="#clubmed-2027">2. Club Med 2027</a>
-<a href="#uniworld">3. Luxury river cruising</a>
-<a href="#phuket">4. Club Med Phuket</a>
-<a href="#thailand">5. Amazing Thailand</a>
-<a href="#tshukudu">6. Tshukudu</a>
-<a href="#oneonly">7. One&Only CPT</a>
-<a href="#dsc-transfers">8. DSC Transfers</a>
-<a href="#virgin-premium">9. Virgin Atlantic Premium</a>
-<a href="#jumeirah">10. Jumeirah Dubai</a>
-<a href="#msc">11. MSC Cruises</a>
-<a href="#madagascar">12. Madagascar</a>
-<a href="#castleburn">13. Castleburn</a>
-<a href="#avis">14. Avis 4-for-3</a>
-<a href="#airlink">15. Airlink Harare</a>
-<a href="#terms">Terms</a>
-</nav>
+<div class="sp-grid-head"><h2>Current specials</h2><p class="text-muted">Click a picture to see the full special, prices and dates.</p></div><div class="sp-grid"><article class="sp-tile" data-id="virgin-upper" ><button type="button" class="sp-open" data-open="virgin-upper" aria-label="Open special: Upper Class - in a class of its own"><span class="sp-media"><img src="assets/img/specials/pdf-only/vs-upper-hero.webp" alt="Virgin Atlantic Upper Class suites - in a class of its own, XL Travel" loading="lazy"><span class="sp-valid sp-ask">Ask for current dates</span></span><span class="sp-body"><span class="brand">Virgin Atlantic</span><span class="sp-title">Upper Class - in a class of its own</span><span class="sp-teaser">Fly Virgin Atlantic Upper Class to London Heathrow from R63 590 pp.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="trafalgar" data-until="2027-10-27"><button type="button" class="sp-open" data-open="trafalgar" aria-label="Open special: Unlock your travel dreams"><span class="sp-media"><img src="assets/img/specials/pdf-only/ttc-smm61-hero.webp" alt="Trafalgar Travel Dreams sale, save up to 15 percent, XL Highway Travel" loading="lazy"><span class="sp-valid" data-until="2027-10-27">Valid until 27 Oct 2027</span></span><span class="sp-body"><span class="brand">Trafalgar</span><span class="sp-title">Unlock your travel dreams</span><span class="sp-teaser">Save up to 15% on selected Trafalgar guided holidays travelling through 2027.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="clubmed-2027" data-until="2026-10-16"><button type="button" class="sp-open" data-open="clubmed-2027" aria-label="Open special: All-inclusive Club Med for 2027"><span class="sp-media"><img src="assets/img/specials/pdf-only/cm-smm60-hero.webp" alt="Club Med Season Opening Sale 2027, up to 20 percent off" loading="lazy"><span class="sp-valid" data-until="2026-10-16">Valid until 16 Oct 2026</span></span><span class="sp-body"><span class="brand">Club Med</span><span class="sp-title">All-inclusive Club Med for 2027</span><span class="sp-teaser">The best rate of the season on land-only Club Med holidays.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="uniworld" data-until="2026-10-31"><button type="button" class="sp-open" data-open="uniworld" aria-label="Open special: Luxury river cruising"><span class="sp-media"><img src="assets/img/specials/pdf-only/uniworld-smm58-hero.webp" alt="Uniworld ship at sunset, luxury river cruising, save up to R12 000" loading="lazy"><span class="sp-valid" data-until="2026-10-31">Valid until 31 Oct 2026</span></span><span class="sp-body"><span class="brand">Uniworld</span><span class="sp-title">Luxury river cruising</span><span class="sp-teaser">The best way to cruise.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="phuket" ><button type="button" class="sp-open" data-open="phuket" aria-label="Open special: Club Med Phuket - paradise for everyone"><span class="sp-media"><img src="assets/img/specials/pdf-only/phuket-section.webp" alt="Tropical resort pool and palm trees - Club Med Phuket all-inclusive" loading="lazy"><span class="sp-valid sp-ask">Ask for current dates</span></span><span class="sp-body"><span class="brand">Club Med</span><span class="sp-title">Club Med Phuket - paradise for everyone</span><span class="sp-teaser">7 nights all-inclusive at Club Med Phuket with return flights from Johannesburg, transfers, gourmet meals and open bar, plus sports and leisure…</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="thailand" data-until="2026-11-15"><button type="button" class="sp-open" data-open="thailand" aria-label="Open special: Trips from R20k to Thailand"><span class="sp-media"><img src="assets/img/specials/pdf-only/thailand-smm56-hero.webp" alt="Amazing Thailand - temples and river boats in Bangkok, Thompsons Holidays and XL Travel" loading="lazy"><span class="sp-valid" data-until="2026-11-15">Valid until 15 Nov 2026</span></span><span class="sp-body"><span class="brand">Thompsons Holidays</span><span class="sp-title">Trips from R20k to Thailand</span><span class="sp-teaser">Return flights, transfers and breakfast.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="tshukudu" data-until="2026-12-31"><button type="button" class="sp-open" data-open="tshukudu" aria-label="Open special: Tshukudu - into the wild"><span class="sp-media"><img src="assets/img/specials/pdf-only/tshukudu-smm54-hero.webp" alt="Tshukudu Bush Lodge at dusk in Pilanesberg - XL Travel SMM54 flyer" loading="lazy"><span class="sp-valid" data-until="2026-12-31">Valid until 31 Dec 2026</span></span><span class="sp-body"><span class="brand">Legacy</span><span class="sp-title">Tshukudu - into the wild</span><span class="sp-teaser">An intimate 12-suite sanctuary on a private concession in malaria-free Pilanesberg National Park, two hours from Johannesburg.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="oneonly" ><button type="button" class="sp-open" data-open="oneonly" aria-label="Open special: One&amp;Only Cape Town - urban retreat"><span class="sp-media"><img src="assets/img/specials/pdf-only/oneonly-section.webp" alt="Cape Town aerial view of V&amp;A Waterfront and Table Mountain" loading="lazy"><span class="sp-valid sp-ask">Ask for current dates</span></span><span class="sp-body"><span class="brand">Thompsons Holidays</span><span class="sp-title">One&amp;Only Cape Town - urban retreat</span><span class="sp-teaser">Two nights at the 5★ One&amp;Only Cape Town in a Marina Harbour Room, breakfast daily, and one child under 12 stays and eats breakfast free when…</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="dsc-transfers" ><button type="button" class="sp-open" data-open="dsc-transfers" aria-label="Open special: DSC Transfers - transport, elevated"><span class="sp-media"><img src="assets/img/specials/pdf-only/dsc-section.webp" alt="Professional chauffeur with luxury black car" loading="lazy"><span class="sp-valid sp-ask">Ask for current dates</span></span><span class="sp-body"><span class="brand">XL Travel</span><span class="sp-title">DSC Transfers - transport, elevated</span><span class="sp-teaser">Chauffeur-driven airport transfers, day and evening hire, corporate event transport and VIP security.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="virgin-premium" ><button type="button" class="sp-open" data-open="virgin-premium" aria-label="Open special: Premium with all the perks"><span class="sp-media"><img src="assets/img/specials/pdf-only/virgin-premium-section.webp" alt="Airplane wing above the clouds - long-haul Premium flight" loading="lazy"><span class="sp-valid sp-ask">Ask for current dates</span></span><span class="sp-body"><span class="brand">XL Travel</span><span class="sp-title">Premium with all the perks</span><span class="sp-teaser">Fly Virgin Atlantic Premium Economy Johannesburg–London Heathrow from R30 000 pp .</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="jumeirah" ><button type="button" class="sp-open" data-open="jumeirah" aria-label="Open special: Jumeirah - 5 star summer stays in Dubai"><span class="sp-media"><img src="assets/img/specials/pdf-only/jumeirah-section.webp" alt="Dubai skyline and luxury beachfront - Jumeirah 5 star stays" loading="lazy"><span class="sp-valid sp-ask">Ask for current dates</span></span><span class="sp-body"><span class="brand">Thompsons Holidays</span><span class="sp-title">Jumeirah - 5 star summer stays in Dubai</span><span class="sp-teaser">Five nights in iconic 5★ Jumeirah hotels with return flights from Johannesburg (including airline levies), private Dubai Airport transfers,…</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="msc" ><button type="button" class="sp-open" data-open="msc" aria-label="Open special: There&#x27;s more to life at sea"><span class="sp-media"><img src="assets/img/specials/pdf-only/msc-smm53-hero.webp" alt="MSC Cruises SMM53 flyer: there's more to life at sea" loading="lazy"><span class="sp-valid sp-ask">Ask for current dates</span></span><span class="sp-body"><span class="brand">MSC Cruises</span><span class="sp-title">There's more to life at sea</span><span class="sp-teaser">Lose track of the ordinary, discover the extraordinary.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="madagascar" ><button type="button" class="sp-open" data-open="madagascar" aria-label="Open special: Madagascar all-inclusive"><span class="sp-media"><img src="assets/img/specials/pdf-only/mad-section.webp" alt="Madagascar" loading="lazy"><span class="sp-valid sp-ask">Ask for current dates</span></span><span class="sp-body"><span class="brand">Flights included</span><span class="sp-title">Madagascar all-inclusive</span><span class="sp-teaser">7 nights with return flights, transfers, all meals and drinks.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="castleburn" data-until="2026-10-31"><button type="button" class="sp-open" data-open="castleburn" aria-label="Open special: Castleburn - a cosy, carefree stay"><span class="sp-media"><img src="assets/img/specials/pdf-only/castleburn-page-hero.webp" alt="Castleburn" loading="lazy"><span class="sp-valid" data-until="2026-10-31">Valid until 31 Oct 2026</span></span><span class="sp-body"><span class="brand">Legacy</span><span class="sp-title">Castleburn - a cosy, carefree stay</span><span class="sp-teaser">Self-catering 2-sleeper units overlooking Lake Madingofani.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="avis" data-until="2027-02-28"><button type="button" class="sp-open" data-open="avis" aria-label="Open special: Avis 4-for-3, the return, baba"><span class="sp-media"><img src="assets/img/specials/pdf-only/avis-4for3-hero.webp" alt="Avis 4-for-3 summer - friends on a road trip, compact cars, SUVs and 4x4s" loading="lazy"><span class="sp-valid" data-until="2027-02-28">Valid until 28 Feb 2027</span></span><span class="sp-body"><span class="brand">Avis</span><span class="sp-title">Avis 4-for-3, the return, baba</span><span class="sp-teaser">Book a minimum of 4 days and only pay for 3.</span><span class="btn btn-secondary sp-view">View special</span></span></button></article><article class="sp-tile" data-id="airlink" ><button type="button" class="sp-open" data-open="airlink" aria-label="Open special: Airlink - Lanseria to Harare"><span class="sp-media"><img src="assets/img/partners/airlink-specials.webp" alt="Airlink - XL Highway Travel partner airline" loading="lazy"><span class="sp-valid sp-ask">Ask for current dates</span></span><span class="sp-body"><span class="brand">Partner airline</span><span class="sp-title">Airlink - Lanseria to Harare</span><span class="sp-teaser">As an Airlink partner , we book this thrice-weekly link between Johannesburg Lanseria and Harare from 15 November - Airlink’s first scheduled…</span><span class="btn btn-secondary sp-view">View special</span></span></button></article></div><p class="text-muted sp-expired-note" hidden></p>
 
 
 
 
+
+<!-- Virgin Atlantic Upper Class · XL VS campaign October -->
+<dialog class="sp-dialog" id="dlg-virgin-upper" aria-labelledby="h-virgin-upper"><div class="sp-dialog-bar"><strong>Upper Class - in a class of its own</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="virgin-upper">
+<div class="special-section-head reveal">
+<div class="special-section-copy">
+<span class="section-kicker">XL Travel · Virgin Atlantic · October campaign</span>
+<h2 id="h-virgin-upper">Upper Class - in a class of its own</h2>
+<p>In partnership with Virgin Atlantic. Fly Virgin Atlantic Upper Class to London Heathrow from <strong>R63 590 pp</strong>. A suite that turns into a fully flat bed, the Private Security Channel in the Upper-Class Wing* at London Heathrow, cocktails and a spa treatment in the Clubhouse**, fine dining in your suite or the social space, and main meals you can choose from 7 days to 24 hours before your flight. Ask XL Highway Travel for current dates.</p>
+</div>
+<div class="special-section-media">
+<img src="assets/img/specials/pdf-only/vs-upper-hero.webp" alt="Virgin Atlantic Upper Class suites - in a class of its own, XL Travel" width="1080" height="1080" loading="lazy">
+</div>
+</div>
+<div class="deal-grid">
+<article class="deal-card reveal">
+<div class="deal-card-media">
+<img src="assets/img/specials/pdf-only/vs-upper-revived.webp" alt="Virgin Atlantic Upper Class suite with fully flat bed" width="1080" height="1080" loading="lazy">
+<span class="deal-save">Arrive Revived</span>
+</div>
+<div class="deal-card-body">
+<span class="brand">In Upper Class</span>
+<h3>Arrive Revived</h3>
+<p class="meta">In Upper Class, put your feet up, with space for everything you like to keep close, from your laptop to your lip balm. When you&#x27;re ready to rest, your seat turns into a fully flat bed with crisp cotton pillows and a duvet.</p>
+<a class="btn btn-secondary" href="contact.html?interest=Virgin%20Atlantic%20Upper%20Class">Enquire</a>
+</div>
+</article>
+<article class="deal-card reveal">
+<div class="deal-card-media">
+<img src="assets/img/specials/pdf-only/vs-upper-security.webp" alt="Virgin Atlantic aircraft tail - Upper Class Wing at London Heathrow" width="1080" height="1080" loading="lazy">
+<span class="deal-save">Security</span>
+</div>
+<div class="deal-card-body">
+<span class="brand">London Heathrow</span>
+<h3>Breeze through security</h3>
+<p class="meta">Breeze through the Private Security Channel in our Upper-Class Wing* at London Heathrow.</p>
+<a class="btn btn-secondary" href="contact.html?interest=Virgin%20Atlantic%20Upper%20Class">Enquire</a>
+</div>
+</article>
+<article class="deal-card reveal">
+<div class="deal-card-media">
+<img src="assets/img/specials/pdf-only/vs-upper-clubhouse.webp" alt="Guest relaxing in the Virgin Atlantic Clubhouse" width="1080" height="1080" loading="lazy">
+<span class="deal-save">R&amp;R</span>
+</div>
+<div class="deal-card-body">
+<span class="brand">The Clubhouse</span>
+<h3>Enjoy some real R&amp;R</h3>
+<p class="meta">Relax and unwind in our Clubhouse** with a cocktail and a spa treatment.</p>
+<a class="btn btn-secondary" href="contact.html?interest=Virgin%20Atlantic%20Upper%20Class">Enquire</a>
+</div>
+</article>
+<article class="deal-card reveal">
+<div class="deal-card-media">
+<img src="assets/img/specials/pdf-only/vs-upper-dining.webp" alt="Fine dining on board Virgin Atlantic Upper Class" width="1080" height="1080" loading="lazy">
+<span class="deal-save">Dining</span>
+</div>
+<div class="deal-card-body">
+<span class="brand">On board</span>
+<h3>Divine dining</h3>
+<p class="meta">On board, enjoy fine cuisine in the privacy of your own suite or mingle in our social space.</p>
+<a class="btn btn-secondary" href="contact.html?interest=Virgin%20Atlantic%20Upper%20Class">Enquire</a>
+</div>
+</article>
+<article class="deal-card reveal">
+<div class="deal-card-media">
+<img src="assets/img/specials/pdf-only/vs-upper-app.webp" alt="Pre-selecting an Upper Class meal on the Virgin Atlantic app" width="1080" height="1080" loading="lazy">
+<span class="deal-save">Pre-order</span>
+</div>
+<div class="deal-card-body">
+<span class="brand">Choose your main meal</span>
+<h3>Satisfy your &#x27;app&#x27;etite in advance</h3>
+<p class="meta">Flying with us in Upper Class you can choose what you&#x27;d like to eat for your main meal from 7 days to 24 hours before your flight.</p>
+<a class="btn btn-secondary" href="contact.html?interest=Virgin%20Atlantic%20Upper%20Class">Enquire</a>
+</div>
+</article>
+<article class="deal-card reveal">
+<div class="deal-card-media">
+<img src="assets/img/specials/pdf-only/vs-upper-price.webp" alt="Virgin Atlantic Upper Class seats - fly Upper from R63 590 pp" width="1080" height="1080" loading="lazy">
+<span class="deal-save">From R63 590 pp</span>
+</div>
+<div class="deal-card-body">
+<span class="brand">Virgin Atlantic Upper Class</span>
+<h3>Fly Upper from R63 590 pp</h3>
+<p class="meta">From-price per person sharing. Taxes and levies subject to change. Quote for your dates via XL Highway Travel.</p>
+<a class="btn btn-secondary" href="contact.html?interest=Virgin%20Atlantic%20Upper%20Class">Enquire</a>
+</div>
+</article>
+<article class="deal-card reveal">
+<div class="deal-card-media">
+<img src="assets/img/specials/pdf-only/vs-upper-terms.webp" alt="XL Travel Virgin Atlantic Upper Class campaign terms and conditions, Hollard Travel Insurance" width="1080" height="1080" loading="lazy">
+<span class="deal-save">Terms</span>
+</div>
+<div class="deal-card-body">
+<span class="brand">Terms &amp; conditions</span>
+<h3>Terms and insurance</h3>
+<p class="meta">All departure taxes and levies are subject to change. Prices are from a starting price per person sharing, subject to change, currency fluctuations and availability. Peak season surcharges, block out periods, advance purchase and minimum stay conditions may apply. The exact amount will be confirmed at time of booking. Price may only be valid for dates as specified. Group rates available on request. Excludes all Visas &amp; Insurance. Standard Terms and Conditions apply. E &amp; O E. Valid for SADC residents only. Travel with confidence - Hollard Travel Insurance available through XL Travel.</p>
+<a class="btn btn-secondary" href="contact.html?interest=Virgin%20Atlantic%20Upper%20Class%20insurance">Enquire</a>
+</div>
+</article>
+</div>
+<p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel - <em>XL VS Campaign October</em> (Virgin Atlantic Upper Class). Artwork from the campaign flyer. From-prices per person sharing; departure taxes and levies subject to change; visas and insurance excluded; valid for SADC residents only. E&amp;OE.</p>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Virgin%20Atlantic%20Upper%20Class">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Upper%20Class%20-%20in%20a%20class%20of%20its%20own" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
 <!-- Trafalgar guided holidays · SMM61 -->
-<section class="special-section" id="trafalgar">
+<dialog class="sp-dialog" id="dlg-trafalgar" aria-labelledby="h-trafalgar"><div class="sp-dialog-bar"><strong>Unlock your travel dreams</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="trafalgar">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Trafalgar · TTC · Save up to 15% · Guided holidays through 2027</span>
-<h2>Unlock your travel dreams</h2>
+<h2 id="h-trafalgar">Unlock your travel dreams</h2>
 <p>Save up to <strong>15%</strong> on selected Trafalgar guided holidays travelling through 2027. From <strong>R30 430 per person sharing</strong>. Trips include accommodation, local transport, selected meals, must-see experiences and tours with expert guides, plus free time to explore. Prices below are starting rates for selected departures. Flights, visas and insurance are extra. Valid for SADC residents. Book through XL Highway Travel.</p>
 </div>
 <div class="special-section-media">
@@ -243,14 +340,14 @@
 </div>
 </div>
 </div>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Trafalgar%20Real%20Britain">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Unlock%20your%20travel%20dreams" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
 <!-- Club Med Season Opening Sale 2027 · SMM60 -->
-<section class="special-section" id="clubmed-2027">
+<dialog class="sp-dialog" id="dlg-clubmed-2027" aria-labelledby="h-clubmed-2027"><div class="sp-dialog-bar"><strong>All-inclusive Club Med for 2027</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="clubmed-2027">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Club Med · Season Opening Sale 2027 · Up to 20% off · Quote by 9 October</span>
-<h2>All-inclusive Club Med for 2027</h2>
+<h2 id="h-clubmed-2027">All-inclusive Club Med for 2027</h2>
 <p>The best rate of the season on land-only Club Med holidays. Up to <strong>20% off</strong>, from <strong>R18 223 per person sharing</strong>. Get a quote from 23 September to 9 October 2026. The sale itself runs 13–16 October 2026. Sample prices below are for May–November 2027 departures. A low deposit holds the holiday, kids under 4 stay free, and you get first pick of rooms and dates. Valid for SADC residents. Book through XL Highway Travel.</p>
 </div>
 <div class="special-section-media">
@@ -372,14 +469,14 @@
 </div>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel <em>SMM60 Club Med Season Opening Sale</em>. Up to 20% off. Land-only from-prices per person sharing: South Africa Beach Resort 5 nights from R18 223 (18 June 2027); Beach Resort &amp; Safari 3+2 nights from R33 155 (18 June 2027); La Pointe aux Canonniers 5 nights from R18 278 (1 July 2027); La Plantation d'Albion 5 nights from R19 281 (28 August 2027); Kani Maldives 7 nights from R28 107 (26 June 2027); Les Seychelles 7 nights from R41 638 (25 June 2027); Albion Villas 5 nights from R33 868 (3 July 2027). May–November 2027 departures. Quote window 23 September – 9 October 2026; sale 13–16 October 2026. Departure taxes and levies subject to change. Prices subject to currency, availability, peak surcharges, block-out dates, advance purchase and minimum stay. The exact amount is confirmed at booking and may apply only to the dates shown. Group rates on request. Visas and insurance excluded. Valid for SADC residents only. E&amp;OE.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Club%20Med%20South%20Africa%20Beach%20Resort">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20All-inclusive%20Club%20Med%20for%202027" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
 <!-- Uniworld Luxury River Cruising -->
-<section class="special-section" id="uniworld">
+<dialog class="sp-dialog" id="dlg-uniworld" aria-labelledby="h-uniworld"><div class="sp-dialog-bar"><strong>Luxury river cruising</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="uniworld">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Uniworld · October sale · Save up to R12 000 · Sales until 31 October 2026</span>
-<h2>Luxury river cruising</h2>
+<h2 id="h-uniworld">Luxury river cruising</h2>
 <p>The best way to cruise. Boutique Uniworld voyages on the Bordeaux rivers, the Danube, the Rhine and the Nile. From <strong>R48 000 per person</strong>. Sales until 31 October 2026 or sold out. Selected 2027 departures. Book through XL Highway Travel.</p>
 </div>
 <div class="special-section-media">
@@ -460,14 +557,14 @@
 </div>
 </div>
 </div>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Uniworld%20Brilliant%20Bordeaux">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Luxury%20river%20cruising" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
 <!-- Club Med Phuket all-inclusive -->
-<section class="special-section" id="phuket">
+<dialog class="sp-dialog" id="dlg-phuket" aria-labelledby="h-phuket"><div class="sp-dialog-bar"><strong>Club Med Phuket - paradise for everyone</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="phuket">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Club Med · All inclusive · Flights included</span>
-<h2>Club Med Phuket - paradise for everyone</h2>
+<h2 id="h-phuket">Club Med Phuket - paradise for everyone</h2>
 <p>7 nights all-inclusive at Club Med Phuket with return flights from Johannesburg, transfers, gourmet meals and open bar, plus sports and leisure activities. From <strong>R42 850 per person sharing</strong>. Valid for SADC residents only. Book through XL Highway Travel.</p>
 </div>
 <div class="special-section-media">
@@ -525,14 +622,14 @@
 </article>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: Club Med / XL Highway Travel special - <em>Phuket all-inclusive</em>. From-prices per person sharing for 7 nights; includes return flights from Johannesburg, transfers, accommodation, gourmet meals &amp; open bar, sports &amp; leisure activities; from 14 December 2026 from R44 850 pps; from 15 January 2027 from R42 850 pps; valid for SADC residents only; subject to change, currency and availability. E&amp;OE.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Club%20Med%20Phuket%20January">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Club%20Med%20Phuket%20-%20paradise%20for%20everyone" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
 <!-- SMM56 Thompsons Amazing Thailand -->
-<section class="special-section" id="thailand">
+<dialog class="sp-dialog" id="dlg-thailand" aria-labelledby="h-thailand"><div class="sp-dialog-bar"><strong>Trips from R20k to Thailand</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="thailand">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Thompsons Holidays · Amazing Thailand · From R19 999 pps</span>
-<h2>Trips from R20k to Thailand</h2>
+<h2 id="h-thailand">Trips from R20k to Thailand</h2>
 <p>Return flights, transfers and breakfast. Phuket, Khao Lak, Koh Samui and Bangkok. From <strong>R19 999 per person sharing</strong>. Selected travel 1 November to 23 December 2026. Book by 31 October or 15 November 2026, depending on the package. Book through XL Highway Travel.</p>
 </div>
 <div class="special-section-media">
@@ -581,13 +678,13 @@
 </article>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel / Thompsons Holidays <em>SMM56 Amazing Thailand</em>. Artwork from the campaign flyer. From-prices per person sharing; include return flights (airline levies), transfers, accommodation and breakfast as listed; exclude visas and insurance; peak-season surcharges and block-outs may apply; selected travel 1 November to 23 December 2026; SADC residents; E&amp;OE. Book through XL Highway Travel.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Sunwing%20Bangtao">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Trips%20from%20R20k%20to%20Thailand" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
-<section class="special-section" id="tshukudu">
+<dialog class="sp-dialog" id="dlg-tshukudu" aria-labelledby="h-tshukudu"><div class="sp-dialog-bar"><strong>Tshukudu - into the wild</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="tshukudu">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Legacy · Tshukudu · Sales & travel until 31 December 2026</span>
-<h2>Tshukudu - into the wild</h2>
+<h2 id="h-tshukudu">Tshukudu - into the wild</h2>
 <p>An intimate 12-suite sanctuary on a private concession in malaria-free Pilanesberg National Park, two hours from Johannesburg. Sweeping views over the grasslands and waterhole, Big Five game, and a fully inclusive bush stay. From <strong>R18 550 per room per night</strong> (Tshwene Deluxe, double). Book through XL Highway Travel.</p>
 </div>
 <div class="special-section-media">
@@ -648,13 +745,13 @@
 </article>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel Legacy - <em>SMM54 Tshukudu</em>. Artwork from the campaign flyer. Rates per room per night; sales and travel until 31 December 2026; minimum 2 nights 18–31 December 2026; SADC residents; visas and insurance excluded; E&OE. Book through XL Highway Travel.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Tshukudu%20Tshwene%20Deluxe">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Tshukudu%20-%20into%20the%20wild" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
-<section class="special-section" id="oneonly">
+<dialog class="sp-dialog" id="dlg-oneonly" aria-labelledby="h-oneonly"><div class="sp-dialog-bar"><strong>One&amp;Only Cape Town - urban retreat</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="oneonly">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Thompsons Holidays · Land only</span>
-<h2>One&amp;Only Cape Town - urban retreat</h2>
+<h2 id="h-oneonly">One&amp;Only Cape Town - urban retreat</h2>
 <p>Two nights at the 5★ One&amp;Only Cape Town in a Marina Harbour Room, breakfast daily, and one child under 12 stays and eats breakfast free when sharing with two adults. Welcome drink, KidsOnly Club, fitness centre and spa hydro-thermal suites, plus private transfers to the V&amp;A Waterfront (subject to availability). Travel from 20 September 2026.</p>
 </div>
 <div class="special-section-media">
@@ -712,14 +809,14 @@
 </article>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel / Thompsons Holidays - <em>SMM47 One&amp;Only Cape Town</em>. Land-only from-prices per person sharing; travel from 20 September 2026; subject to change, currency and availability. Valid for SADC residents. Ask us to confirm live rates for your dates.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=OneOnly%20Cape%20Town%20Escape">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20One%26Only%20Cape%20Town%20-%20urban%20retreat" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
 <!-- SMM46 DSC Transfers / chauffeur & VIP transport -->
-<section class="special-section" id="dsc-transfers">
+<dialog class="sp-dialog" id="dlg-dsc-transfers" aria-labelledby="h-dsc-transfers"><div class="sp-dialog-bar"><strong>DSC Transfers - transport, elevated</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="dsc-transfers">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">XL Travel · DSC / Jetso Group</span>
-<h2>DSC Transfers - transport, elevated</h2>
+<h2 id="h-dsc-transfers">DSC Transfers - transport, elevated</h2>
 <p>Chauffeur-driven airport transfers, day and evening hire, corporate event transport and VIP security. DSC (a division of Jetso Group) focuses on client safety and comfort for corporate and executive travel. Book chauffeur and VIP transport through XL Highway Travel.</p>
 </div>
 <div class="special-section-media">
@@ -777,14 +874,14 @@
 </article>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel - <em>SMM46 DSC Transfers</em>. Service offering; rates on application. Subject to availability and supplier terms. Valid for SADC residents where the supplier requires it. Ask us to quote for your route and vehicle class.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=DSC%20chauffeur%20drive">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20DSC%20Transfers%20-%20transport%2C%20elevated" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
 <!-- Virgin Atlantic Premium Economy SMM45 -->
-<section class="special-section" id="virgin-premium">
+<dialog class="sp-dialog" id="dlg-virgin-premium" aria-labelledby="h-virgin-premium"><div class="sp-dialog-bar"><strong>Premium with all the perks</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="virgin-premium">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">XL Travel · Virgin Atlantic</span>
-<h2>Premium with all the perks</h2>
+<h2 id="h-virgin-premium">Premium with all the perks</h2>
 <p>Fly Virgin Atlantic Premium Economy Johannesburg–London Heathrow from <strong>R30 000 pp</strong>. Premium check-in and priority boarding, welcome bubbly, extra legroom (up to 38&quot; pitch), leather seats, in-seat power, Wi‑Fi*, and a premium menu with pre-select from 7 days to 24 hours before departure. Book through XL Highway Travel.</p>
 </div>
 <div class="special-section-media">
@@ -829,13 +926,13 @@
 </article>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel - <em>SMM45 Virgin Atlantic Premium Economy</em>. From-prices pps sharing; subject to taxes, levies, currency and availability. Valid for SADC residents. Wi‑Fi terms apply. Ask us to quote live fares for your dates.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Virgin%20Atlantic%20Premium%20JNB%20LHR">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Premium%20with%20all%20the%20perks" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
-<section class="special-section" id="jumeirah">
+<dialog class="sp-dialog" id="dlg-jumeirah" aria-labelledby="h-jumeirah"><div class="sp-dialog-bar"><strong>Jumeirah - 5 star summer stays in Dubai</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="jumeirah">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Thompsons Holidays · Flights included · SMM50</span>
-<h2>Jumeirah - 5 star summer stays in Dubai</h2>
+<h2 id="h-jumeirah">Jumeirah - 5 star summer stays in Dubai</h2>
 <p>Five nights in iconic 5★ Jumeirah hotels with return flights from Johannesburg (including airline levies), private Dubai Airport transfers, breakfast daily and a UAE tourist visa. From <strong>R44 130 per person sharing</strong>. Book through XL Highway Travel.</p>
 </div>
 <div class="special-section-media">
@@ -915,13 +1012,13 @@
 </div>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel / Thompsons Holidays - <em>SMM50 Jumeirah Campaign</em>. From-prices per person sharing for 5 nights; includes return flights from Johannesburg with airline levies, private Dubai Airport transfers, breakfast daily and UAE tourist visa; subject to change, currency and availability; valid for SADC residents. Ask us to confirm live rates for your dates.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Jumeirah%20Beach%20Hotel">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Jumeirah%20-%205%20star%20summer%20stays%20in%20Dubai" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
-<section class="special-section" id="msc">
+<dialog class="sp-dialog" id="dlg-msc" aria-labelledby="h-msc"><div class="sp-dialog-bar"><strong>There's more to life at sea</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="msc">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">MSC Cruises · XL Travel SMM53</span>
-<h2>There's more to life at sea</h2>
+<h2 id="h-msc">There's more to life at sea</h2>
 <p>Lose track of the ordinary, discover the extraordinary. MSC Cruises across new horizons, flavours, family time and island escapes. No from-prices on this campaign - ask XL Highway Travel to quote your dates, cabin and itinerary. Flights, visas and insurance excluded unless arranged. SADC residents. E&OE.</p>
 </div>
 <div class="special-section-media">
@@ -1027,13 +1124,13 @@
 </article>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel - <em>SMM53 MSC Brand Campaign</em>. Artwork from the campaign flyer. Rates on application; air, visas and insurance excluded; departure taxes and levies subject to change; SADC residents only. E&OE.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=MSC%20Cruises%20discover">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20There%27s%20more%20to%20life%20at%20sea" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
-<section class="special-section" id="madagascar">
+<dialog class="sp-dialog" id="dlg-madagascar" aria-labelledby="h-madagascar"><div class="sp-dialog-bar"><strong>Madagascar all-inclusive</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="madagascar">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Flights included</span>
-<h2>Madagascar all-inclusive</h2>
+<h2 id="h-madagascar">Madagascar all-inclusive</h2>
 <p>7 nights with return flights, transfers, all meals and drinks. Travel 3 Nov – 8 Dec 2026. Prices pps sharing.</p>
 </div>
 <div class="special-section-media">
@@ -1069,13 +1166,13 @@
 </div>
 </article>
 </div>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Madagascar%20Vanila">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Madagascar%20all-inclusive" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
-<section class="special-section" id="castleburn">
+<dialog class="sp-dialog" id="dlg-castleburn" aria-labelledby="h-castleburn"><div class="sp-dialog-bar"><strong>Castleburn - a cosy, carefree stay</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="castleburn">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Legacy · Southern Drakensberg</span>
-<h2>Castleburn - a cosy, carefree stay</h2>
+<h2 id="h-castleburn">Castleburn - a cosy, carefree stay</h2>
 <p>Self-catering 2-sleeper units overlooking Lake Madingofani. Sales 1 Aug – 31 Oct 2026. Travel until 30 Nov 2026.</p>
 </div>
 <div class="special-section-media">
@@ -1098,13 +1195,13 @@
 </article>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel Legacy - <em>SMM42 Castleburn</em>.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Castleburn%20Drakensberg">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Castleburn%20-%20a%20cosy%2C%20carefree%20stay" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
-<section class="special-section" id="avis">
+<dialog class="sp-dialog" id="dlg-avis" aria-labelledby="h-avis"><div class="sp-dialog-bar"><strong>Avis 4-for-3, the return, baba</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="avis">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Avis · 4-for-3 summer · Book to 28 February 2027</span>
-<h2>Avis 4-for-3, the return, baba</h2>
+<h2 id="h-avis">Avis 4-for-3, the return, baba</h2>
 <p>Book a minimum of 4 days and only pay for 3. The complimentary day means you can stay a little longer. Compact cars, sedans, SUVs, vans and 4x4s. Book <strong>14 September 2026 to 28 February 2027</strong> through XL Highway Travel. Available in South Africa, Namibia, Eswatini and Botswana.</p>
 </div>
 <div class="special-section-media">
@@ -1169,13 +1266,13 @@
 </div>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Source: XL Travel / Avis <em>SMM57 4-for-3 Summer</em>. Artwork from the campaign flyer. Book a minimum of 4 days and pay for 3; booking 14 September 2026 to 28 February 2027; available in South Africa, Namibia, Eswatini and Botswana; supplier terms apply; SADC residents; E&amp;OE. Book through XL Highway Travel.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Avis%204-for-3">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Avis%204-for-3%2C%20the%20return%2C%20baba" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
-<section class="special-section" id="airlink">
+<dialog class="sp-dialog" id="dlg-airlink" aria-labelledby="h-airlink"><div class="sp-dialog-bar"><strong>Airlink - Lanseria to Harare</strong><button type="button" class="sp-close" aria-label="Close">&times;</button></div><div class="sp-dialog-body"><section class="special-section" id="airlink">
 <div class="special-section-head reveal">
 <div class="special-section-copy">
 <span class="section-kicker">Partner airline · New route from 15 November</span>
-<h2>Airlink - Lanseria to Harare</h2>
+<h2 id="h-airlink">Airlink - Lanseria to Harare</h2>
 <p>As an <a href="partners.html">Airlink partner</a>, we book this thrice-weekly link between Johannesburg Lanseria and Harare from 15 November - Airlink’s first scheduled service out of Lanseria. Skip OR Tambo: fly from Lanseria on an Embraer E190 (six business class, 92 economy). Ideal for Zimbabwe city breaks, Victoria Falls, corporate meetings and NGO travel from northern Gauteng. Fares and packages quoted on request.</p>
 </div>
 <div class="special-section-media" style="display:grid;place-items:center;background:var(--white);border:1px solid var(--line);padding:1.5rem">
@@ -1215,7 +1312,7 @@
 <a class="btn btn-outline" href="southern-africa.html#vic-falls">Southern Africa &amp; Vic Falls</a>
 </div>
 <p class="text-muted reveal" style="margin:1rem 0 0;font-size:0.9rem">Airlink is an XL Highway Travel partner airline. Schedules and aircraft subject to airline confirmation. Enquire for live fares and tailor-made packages.</p>
-</section>
+</section><div class="btn-row sp-actions"><a class="btn btn-primary" href="contact.html?interest=Lanseria%20Harare%20city%20break">Request a quote</a><a class="btn btn-whatsapp social-link social-link--wa" href="https://wa.me/27828261451?text=Hi%20XL%20Highway%20Travel%2C%20I%20am%20interested%20in%20the%20special%3A%20Airlink%20-%20Lanseria%20to%20Harare" rel="noopener"><svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg><span>WhatsApp us</span></a></div></div></dialog>
 
 <!-- LIVE-SPECIALS:START -->
 <!-- LIVE-SPECIALS:END -->
@@ -1226,7 +1323,7 @@
 <h3>Terms &amp; conditions</h3>
 <p><strong>Trafalgar guided holidays (SMM61):</strong> save up to 15% on selected guided holidays travelling through 2027; from-prices per person sharing (Real Britain from R30 430, was R35 800; Prague, Vienna & Budapest from R39 015, was R45 900; Spanish Wonder from R37 060, was R43 600; Best of Morocco from R42 210, was R46 900; Best of Italy from R59 400, was R67 500; European Whirl from R59 415, was R69 900); includes accommodation, local transport, selected meals, must-see experiences and expert-guided tours as advertised; selected departure windows and sales deadlines as listed on each tour; international flights, visas and insurance excluded; departure taxes and levies subject to change; peak surcharges, block-outs, advance-purchase and minimum-stay rules may apply; group rates on request; valid for SADC residents; supplier terms apply. <strong>Club Med Season Opening Sale 2027 (SMM60):</strong> up to 20% off; land only; quote 23 September – 9 October 2026; sale 13–16 October 2026; from-prices per person sharing as listed (South Africa Beach Resort from R18 223, Beach &amp; Safari from R33 155, La Pointe aux Canonniers from R18 278, La Plantation d'Albion from R19 281, Kani from R28 107, Les Seychelles from R41 638, Albion Villas from R33 868); sample dates and May–November 2027 departures; low deposit, kids under 4 stay free, Kids Club priority and first pick of rooms and dates as advertised; meals, drinks, entertainment and activities included; flights, visas and insurance excluded; departure taxes and levies subject to change; Hollard Travel Insurance available on request; valid for SADC residents; supplier terms apply.
 Prices from a starting price per person sharing unless stated, subject to currency, season and availability. Peak surcharges, block-outs and minimum-stay rules may apply. Final amount confirmed at booking. Land-only tours exclude international flights. Madagascar prices indicative until full payment.
-<strong>One&amp;Only Cape Town (SMM47 / Thompsons Holidays):</strong> land-only from-prices per person sharing for 2 nights Marina Harbour Room with breakfast; One Escape from R12 560 pps; Urban Retreat from R14 490 pps including one curated experience; child under 12 free when sharing with 2 adults (breakfast included); travel from 20 September 2026; peak surcharges and availability apply; supplier terms apply; valid for SADC residents. <strong>DSC Transfers (SMM46):</strong> chauffeur, event and VIP transport services; rates on application; supplier terms apply. <strong>Virgin Atlantic Premium (SMM45):</strong> from-prices per person for Premium cabin Johannesburg–London Heathrow; from R30 000 pp; departure taxes and levies subject to change; subject to currency, availability and airline conditions; valid for SADC residents; supplier terms apply. <strong>Uniworld luxury river cruising (SMM58):</strong> from-prices per person; Brilliant Bordeaux from R48 000 (save R8 000); Vineyards and Palaces along the Danube from R57 000 (save R8 000); Remarkable Rhine and Historic Holland from R61 000 (save R12 000); Splendours of Egypt and the Nile from R102 000 (save R12 000); sales until 31 October 2026 or sold out; selected 2027 departures; classic river cabin, meals, unlimited premium beverages, daily excursions, onboard gratuities and cruise director included as advertised; visas and insurance excluded; SADC residents; supplier terms apply. <strong>Jumeirah Dubai (SMM50 / Thompsons Holidays):</strong> from-prices per person sharing for 5 nights; Beach Hotel from R44 130, Mina A'Salam from R47 480, Al Naseem from R58 840, Marsa Al Arab from R97 945; includes return flights Johannesburg with airline levies, private Dubai Airport transfers, breakfast daily and UAE tourist visa; subject to change, currency and availability; supplier terms apply; valid for SADC residents.
+<strong>One&amp;Only Cape Town (SMM47 / Thompsons Holidays):</strong> land-only from-prices per person sharing for 2 nights Marina Harbour Room with breakfast; One Escape from R12 560 pps; Urban Retreat from R14 490 pps including one curated experience; child under 12 free when sharing with 2 adults (breakfast included); travel from 20 September 2026; peak surcharges and availability apply; supplier terms apply; valid for SADC residents. <strong>DSC Transfers (SMM46):</strong> chauffeur, event and VIP transport services; rates on application; supplier terms apply. <strong>Virgin Atlantic Upper Class (October campaign):</strong> from R63 590 pp; all departure taxes and levies are subject to change; prices are from a starting price per person sharing, subject to change, currency fluctuations and availability; peak season surcharges, block out periods, advance purchase and minimum stay conditions may apply; the exact amount will be confirmed at time of booking; price may only be valid for dates as specified; group rates available on request; excludes all visas and insurance (Hollard Travel Insurance available through XL Travel); standard terms and conditions apply; valid for SADC residents only. E&amp;OE. <strong>Virgin Atlantic Premium (SMM45):</strong> from-prices per person for Premium cabin Johannesburg–London Heathrow; from R30 000 pp; departure taxes and levies subject to change; subject to currency, availability and airline conditions; valid for SADC residents; supplier terms apply. <strong>Uniworld luxury river cruising (SMM58):</strong> from-prices per person; Brilliant Bordeaux from R48 000 (save R8 000); Vineyards and Palaces along the Danube from R57 000 (save R8 000); Remarkable Rhine and Historic Holland from R61 000 (save R12 000); Splendours of Egypt and the Nile from R102 000 (save R12 000); sales until 31 October 2026 or sold out; selected 2027 departures; classic river cabin, meals, unlimited premium beverages, daily excursions, onboard gratuities and cruise director included as advertised; visas and insurance excluded; SADC residents; supplier terms apply. <strong>Jumeirah Dubai (SMM50 / Thompsons Holidays):</strong> from-prices per person sharing for 5 nights; Beach Hotel from R44 130, Mina A'Salam from R47 480, Al Naseem from R58 840, Marsa Al Arab from R97 945; includes return flights Johannesburg with airline levies, private Dubai Airport transfers, breakfast daily and UAE tourist visa; subject to change, currency and availability; supplier terms apply; valid for SADC residents.
 <strong>MSC Cruises (SMM53):</strong> brand campaign; rates on application; cruise only unless quoted otherwise; air, visas and insurance excluded; departure taxes and levies subject to change; peak surcharges, block-outs, advance-purchase and minimum-stay rules may apply; group rates on request; valid for SADC residents; supplier terms apply. E&OE.
 
 <strong>Castleburn (SMM42):</strong> R1 980 per unit/night 2-sleeper; sales 1 Aug – 31 Oct 2026; travel until 30 Nov 2026.
@@ -1299,5 +1396,19 @@ Prices from a starting price per person sharing unless stated, subject to curren
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 <script src="assets/js/main.js" defer></script>
-</body>
+<script>
+(function(){
+var q=new URLSearchParams(location.search).get("today");var T=q?new Date(q+"T00:00:00"):new Date();T.setHours(0,0,0,0);var hid=0;
+document.querySelectorAll(".sp-tile[data-until]").forEach(function(t){var d=new Date(t.dataset.until+"T00:00:00"),days=(d-T)/864e5,b=t.querySelector(".sp-valid");
+ if(days<0){t.classList.add("is-expired");hid++;}else if(days<=14){b.classList.add("sp-soon");b.textContent="Ends soon · "+b.textContent.replace("Valid until ","");}});
+if(hid){var n=document.querySelector(".sp-expired-note");n.hidden=false;n.textContent=hid+" expired special(s) hidden.";}
+function open(id){var d=document.getElementById("dlg-"+id);if(!d)return;d.showModal();d.scrollTop=0;history.replaceState(null,"","#"+id);}
+function close(d){d.close();}
+document.querySelectorAll("[data-open]").forEach(function(b){b.addEventListener("click",function(){open(b.dataset.open);});});
+document.querySelectorAll(".sp-dialog").forEach(function(d){d.querySelector(".sp-close").addEventListener("click",function(){close(d);});
+ d.addEventListener("click",function(e){if(e.target===d)close(d);});d.addEventListener("close",function(){history.replaceState(null,"",location.pathname+location.search);});});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){var id=a.getAttribute("href").slice(1);if(document.getElementById("dlg-"+id))a.addEventListener("click",function(e){e.preventDefault();open(id);});});
+if(location.hash&&document.getElementById("dlg-"+location.hash.slice(1)))open(location.hash.slice(1));
+})();
+</script></body>
 </html>
